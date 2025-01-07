@@ -25,8 +25,6 @@ resource "aws_iam_role_policy" "step_function_policy" {
             {
                 Action = [
                     "lambda:InvokeFunction",
-                    "glue:StartCrawler",
-                    "glue:GetCrawler"
                 ]
                 Effect = "Allow"
                 Resource = "*"
@@ -41,87 +39,16 @@ resource "aws_sfn_state_machine" "alpine_huts_ingestion_orchestration" {
 
     definition = jsonencode({
         Comment: "Runs the ingestion process for the Alpine Huts dataset",
-        StartAt: "InvokeLambda",
+        StartAt: "GetDataset",
         States: {
-            InvokeLambda: {
+            GetDataset: {
                 Type: "Task",
                 Resource: aws_lambda_function.alpine_huts_ingestion.arn,
-                Next: "StartGlueCrawler"
+                Next: "Success"
             },
-        StartGlueCrawler: {
-          Type: "Task",
-          Parameters: {
-            Name: aws_glue_crawler.raw_alpine_huts.name
-          },
-          Resource: "arn:aws:states:eu-central-1:${local.account_id}:aws-sdk:glue:startCrawler",
-          Next: "CrawlerInfo",
-          Retry: [
-            {
-              ErrorEquals: [
-                "States.ALL"
-              ],
-              BackoffRate: 2,
-              IntervalSeconds: 10,
-              MaxAttempts: 2
-            }
-          ]
-        },
-        CrawlerInfo: {
-          Type: "Task",
-          Next: "CrawlerStatus",
-          Parameters: {
-            Name: aws_glue_crawler.raw_alpine_huts.name
-          },
-          Resource: "arn:aws:states:::aws-sdk:glue:getCrawler",
-          Retry: [
-            {
-              ErrorEquals: [
-                "States.ALL"
-              ],
-              BackoffRate: 2,
-              IntervalSeconds: 10,
-              MaxAttempts: 2
-            }
-          ]
-        },
-        CrawlerStatus: {
-          Type: "Choice",
-          Choices: [
-            {
-              Variable: "$.Crawler.State",
-              StringEquals: "FAILED",
-              Next: "CrawlerFailed"
-            },
-            {
-              Variable: "$.Crawler.State",
-              StringEquals: "RUNNING",
-              Next: "CrawlerFinishWait"
-            },
-            {
-              Variable: "$.Crawler.State",
-              StringEquals: "STOPPING",
-              Next: "CrawlerFinishWait"
-            },
-            {
-              Variable: "$.Crawler.State",
-              StringEquals: "READY",
-              Next: "Success"
-            }
-          ],
-          Default: "CrawlerFailed"
-        },
-        CrawlerFinishWait: {
-          Type: "Wait",
-          Seconds: 10,
-          Next: "CrawlerInfo"
-        },
-        CrawlerFailed: {
-          Type: "Fail"
-        },
         Success: {
           Type: "Succeed"
         },
-
         }
     })
 }
