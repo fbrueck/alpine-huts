@@ -1,0 +1,1945 @@
+{
+    "global": {
+      "appVersion": "1.0.0",
+      "appName": "Hut Reservation",
+      "source": {
+        "System": "System",
+        "Admin": "Admin",
+        "Guest": "Gast",
+        "Staff": "Personal",
+        "Api": "API"
+      },
+      "reservation": {
+        "possibleStatus": {
+          "all": "Alle",
+          "unconfirmed": "Unbestätigt",
+          "confirmed": "Bestätigt",
+          "checked_in": "Eingecheckt",
+          "no_show": "No-Show",
+          "no_show_charged": "No-Show belastet",
+          "discarded": "Storniert",
+          "on_waiting_list": "Warteliste",
+          "pending_fees": "Offene Gebühren"
+        },
+        "emailSentSuccess": "E-Mail wurde versendet.",
+        "emailSentFailed": "E-Mail konnte nicht versendet werden."
+      },
+      "daysOfWeeks": {
+        "monday": "Montag",
+        "tuesday": "Dienstag",
+        "wednesday": "Mittwoch",
+        "thursday": "Donnerstag",
+        "friday": "Freitag",
+        "saturday": "Samstag",
+        "sunday": "Sonntag"
+      },
+      "common": {
+        "true": "Ja",
+        "false": "Nein",
+        "ok": "OK",
+        "cancel": "Abbrechen",
+        "nights": "Nächte",
+        "night": "Nacht",
+        "guests": "Gäste",
+        "assign": "Zuweisen"
+      },
+      "ePaymentProviders": {
+        "NO_EPAYMENT": "Kein Zahlungsanbieter",
+        "HOBEX": "Hobex",
+        "PAYREXX": "Payrexx"
+      },
+      "paymentProvider": {
+        "informationalText": "Die Kreditkarte wird verwendet um eine allfällige Storno- oder No-Show-Gebühr abzusichern. Während der Authorisierung wird kurzzeitig max. 1 EUR belastet und im Anschluss wieder storniert. Bitte beachte, dass du die Übernachtungsgebühren vor Ort bezahlst.",
+        "pleaseEnterCardInfo": "Bitte gib deine Kreditkarteninformationen ein:",
+        "error_payrexx": {
+          "500": "Kommunikationsfehler mit Zahlungsanbieter!",
+          "800": "Kommunikationsfehler mit Zahlungsanbieter!",
+          "802": "Kommunikationsfehler mit Zahlungsanbieter!",
+          "803": "Credit card registration failed - Error during credit card registration due to following reason: {{param1}}",
+          "804": "Die Kreditkarte muss über den Reservierungszeitraum hinaus gültig sein plus {{param1}} Tage.",
+          "812": "Die Kreditkarte ist gesperrt.",
+          "813": "Die Kreditkarte ist nicht mehr gültig.",
+          "814": "Zusätzliche Authentifizierung erforderlich.",
+          "815": "Der Betrag konnte nicht abgebucht werden.",
+                  "your_card_was_declined": "Ihre Karte wurde abgelehnt.",
+          "generic_error": "Generischer Anbieterfehler."
+        }
+      },
+      "userType": {
+        "STANDARD": "Standard",
+        "PROFESSIONAL": "Profi",
+        "GROUP": "Gruppe",
+        "EXPRESS": "Express"
+      },
+      "snackbar": {
+        "internalServerError": "<b>FEHLER AUFGETRETEN!</b><br><b>Fehlercode: {{uuid}}.</b> Bitte verwende diesen Code als Referenz für den technischen Support.",
+        "operationSuccessfullyCompleted": "Operation erfolgreich abgeschlossen.",
+        "copyClipboardMsg": "In die Zwischenablage kopiert.",
+        "copyError": "Fehlercode in die Zwischenablage kopieren."
+      },
+      "voiceover": {
+        "language": {
+          "EN": "Englisch",
+          "IT": "Italienisch",
+          "FR": "Französisch",
+          "SL": "Slowenisch",
+          "DE": "Deutsch"
+        }
+      },
+      "reservationHints": {
+        "doubleBooking": "Doppelte Reservierung",
+        "hasComment": "Hat einen Kommentar",
+        "hasGroupName": "Hat einen Gruppennamen",
+        "professional": "Profi",
+        "pendingFees": "Offene Gebühren",
+        "bedAssignmentIncomplete": "Schlafplatzzuweisung unvollständig",
+        "hasGuide": "Bergführer/in dabei",
+        "hasPartialNoShow": "Die tatsächliche Anzahl der Gäste am ausgewählten Tag kann von der Gesamtanzahl der Gäste abweichen auf Grund von partiellem No-Show. Bitte checke die Reservierungsdetails."
+      },
+      "datePicker": {
+        "invalidFormat": "Bitte verwende das folgende Datumsformat: TT.MM.JJJJ - TT.MM.JJJJ.",
+        "invalidRange": "Bitte wähle einen gültigen Datumsbereich aus, um fortzufahren."
+      },
+      "language": {
+        "DE_DE": "DE",
+        "DE_CH": "DE",
+        "EN": "EN",
+        "FR": "FR",
+        "IT": "IT"
+      },
+      "systemLanguages": {
+        "DE_DE": "Deutsch",
+        "DE_CH": "Deutsch (CH)",
+        "EN": "Englisch",
+        "FR": "Französich",
+        "IT": "Italienisch"
+      },
+      "warningMessage": {
+        "bedAssignmentWarningMessage": "Diese Änderung führt zum Entfernen aller zugewiesenen Betten, die manuell neu zugewiesen werden müssen. Möchtest du fortfahren?"
+      },
+      "editingReservation": {
+        "modalTitle": "Schlafplatzzuweisung"
+      }
+    },
+    "navbar": {
+      "navTitle": "Hut Reservation",
+      "reservationLink": "Meine Reservierungen",
+      "reservations": "Reservierungen",
+      "configuration": "Konfiguration",
+      "profi": "Reservierung von {{dynamicValue}}"
+    },
+    "loginForm": {
+      "email": "E-Mail",
+      "username": "Benutzername",
+      "forgottenPassword": "Passwort vergessen?",
+      "title": "Einloggen",
+      "message": "Wenn du ein Alpenvereinskonto besitzt, kannst du dich damit einloggen.",
+      "messageDivider": "oder",
+      "messageValid": "Du bist über einen Einladungslink auf die Seite gelangt. Logge dich ein oder registriere dich um den Prozess abzuschließen.",
+      "messageChangedMailExpired": "Deine Emailadresse ist bereits geändert. Der Link ist nicht mehr gültig.",
+      "messageChangedMailSuccess": "Deine E-Mail Adresse wurde aktualisiert. Du kannst sie nun für das Login verwenden.",
+      "messageInvitationAlreadyConsumed": "Du bist über einen Einladungslink auf die Seite gelangt. Der Link ist nicht mehr gültig. Bitte kontaktiere den Administrator damit du einen neuen Link erhältst.",
+      "password": "Passwort",
+      "loginButton": "Login",
+      "registerButton": "Registrieren",
+      "passwordForgotten": "Passwort vergessen?",
+      "messageInvitationNotFound": "Warnung: Es ist ein Fehler aufgetreten!",
+      "buttonOEAV": "Weiter mit ÖAV Konto",
+      "buttonSAC": "Weiter mit SAC Konto",
+      "infoText": "Du hast noch kein Benutzerprofil? Du musst eine Reservierung erstellen, um dich als Benutzer zu registrieren."
+    },
+    "invitationError": {
+      "emailDifferent": "Die E-Mail Adresse in deinem Vereinskonto ist nicht dieselbe wie in der ursprünglichen Einladungsmail. Bitte kontaktiere den Administrator, um eine neue Einladung mit dieser E-Mail Adresse zu erhalten",
+      "invitationExpired": "Du bist über einen Einladungslink auf die Seite gelangt. Der Link ist nicht mehr gültig. Bitte kontaktiere den Administrator damit du einen neuen Link erhältst.",
+      "noInvitationFound": "Keine Einladung gefunden",
+      "passwordMostWidley": "Passwort nicht sicher.",
+      "genericError": "Allgemeiner Fehler"
+    },
+    "footer": {
+      "legalNotice": "Impressum",
+      "privacyPolicy": "Datenschutz",
+      "support": "Support",
+      "faqLink": "https://hut-reservation.notion.site/FAQ-130c866368c38154919fed96e4fa4929",
+      "defaultSupportLink": "https://hut-reservation.notion.site/Support-130c866368c381929387de2833b04288",
+      "collaborationText": "Entwickelt in Kooperation folgender Verbände",
+      "copyright": "© 2023 - {{currentYear}}"
+    },
+    "tenantsPage": {
+      "manageUserLabel": "Benutzerverwaltung",
+      "tenantsLabel": "Mandanten",
+      "tenantsTable": {
+        "tenantCodeColumnLabel": "Mandant Code",
+        "administratorColumnLabel": "Administratoren",
+        "countryColumnLabel": "Land",
+        "paymentProviderColumnLabel": "Zahlungsanbieter",
+        "currencyColumnLabel": "Währung"
+      }
+    },
+    "button": {
+      "buttonText": "Zurück",
+      "buttonAddTenant": "Mandant hinzufügen",
+      "buttonAddHut": "Hütte hinzufügen",
+      "buttonCancel": "Abbrechen",
+      "buttonClose": "Schließen",
+      "buttonSave": "Speichern",
+      "buttonEdit": "Bearbeiten",
+      "buttonDelete": "Löschen",
+      "buttonSend": "Absenden",
+      "buttonSendMessage": "E-Mail an Hütte",
+      "buttonEditCreditCard": "Kreditkarte bearbeiten",
+      "buttonOk": "OK",
+      "buttonExecute": "Ausführen",
+      "buttonNext": "Weiter",
+      "buttonExport": "Export"
+    },
+    "breadcrumb": {
+      "home": "Start",
+      "login": "Login",
+      "huts": "Hütten",
+      "privacyPolicy": "Datenschutz",
+      "legalNotice": "Impressum",
+      "back": "Zurück",
+      "tenants": "Mandanten",
+      "account": "Mein Profil",
+      "language": "Sprachen",
+      "roomCategories": "Raumkategorien",
+      "myReservations": "Meine Reservierungen",
+      "reservations": "Reservierungen",
+      "newReservation": "Neue Reservierung",
+      "reservationNumber": "Reservierung",
+      "details": "Details",
+      "manage-web-service": "API Endpunkte"
+    },
+    "modalTitle": {
+      "addTenant": "Mandant hinzufügen",
+      "addHut": "Hütte hinzufügen"
+    },
+    "tenantModal": {
+      "tenantCode": "Mandant Code",
+      "tenantCodeError": "Ungültiger Mandanten-Code. Der Code muss a-z, A-Z, 0-9 oder Sonderzeichen (-,_,.,@) und mindestens drei Zeichen enthalten.",
+      "country": "Land",
+      "ePaymentProvider": {
+        "label": "Zahlungsanbieter"
+      },
+      "currency": "Währung",
+      "tenantExist": "Mandant Code existiert bereits.",
+      "missingField": "Pflichtfeld"
+    },
+    "editTenantModal": {
+      "titleLabel": "Mandant bearbeiten",
+      "tenantAdmins": "Mandant Administratoren",
+      "saveButton": "Speichern",
+      "cancelButton": "Abbrechen",
+      "ePaymentProviderModal": {
+        "title": "Zahlungsanbieter wechseln",
+        "content": "Bei der Änderung des Zahlungsananbieters wird die Zahlungskonfiguration aller Hütten dieses Mandanten zurückgesetzt. Alle Informationen zu Kreditkarten, welche für keinen anderen Mandanten relevant sind, werden aus dem System gelöscht. Möchtest du wirklich fortfahren?"
+      }
+    },
+    "deleteTenant": {
+      "modalTitle": "Mandant löschen",
+      "modalText": "Möchtest du den Mandant <strong>{{tenantCode}}</strong> wirklich löschen? Die Aktion kann nicht rückgängig gemacht werden."
+    },
+    "deleteUser": {
+      "modalTitle": "Benutzer löschen",
+      "deleteErrorTitle": "Löschen nicht möglich.",
+      "modalText": "Möchtest du den Benutzer <strong>{{username}}</strong> wirklich löschen? Die Aktion kann nicht rückgängig gemacht werden.",
+      "errorMessage217": "Du kannst den Benutzer nicht löschen, solange noch Reservierungen aktiv sind.",
+      "errorMessage237": "Du kannst den Benutzer nicht löschen, solange noch Reservierungen aktiv sind."
+    },
+    "deleteModalButton": {
+      "buttonTextConfirm": "Ja, löschen",
+      "buttonTextCancel": "Abbrechen"
+    },
+    "addHutForm": {
+      "tenant": "Mandant",
+      "hutName": "Hüttenname",
+      "section": "Sektion",
+      "country": "Land",
+      "managedByClub": "Vom Verein verwaltet",
+      "hutExist": "Hütte existiert bereits.",
+      "missingField": "Pflichtfeld"
+    },
+    "snackBarTenantAdded": "Mandant erfolgreich gespeichert.",
+    "snackBarHutAdded": "Hütte erfolgreich gespeichert.",
+    "Germany": "Deutschland",
+    "Austria": "Österreich",
+    "Switzerland": "Schweiz",
+    "Italy": "Italien",
+    "France": "Frankreich",
+    "Slovenia": "Slowenien",
+    "Liechtenstein": "Liechtenstein",
+    "hutPage": {
+      "hutId": "Hütten ID",
+      "hutName": "Hüttenname",
+      "section": "Sektion",
+      "clubHut": "Vereinshütte",
+      "country": "Land",
+      "hutWarden": "Hüttenwirt/in",
+      "visibility": "Status",
+      "yes": "Ja",
+      "no": "Nein",
+      "locked": "Gesperrt",
+      "unlocked": "Aktiviert",
+      "sendNotification": "Benachrichtigung senden",
+      "allHuts": "Alle Hütten",
+      "published": "Nur aktivierte Hütten",
+      "unpublished": "Nur gesperrte Hütten",
+      "subject": "Betreff",
+      "body": "Text",
+      "url": "Link",
+      "optional": "Optional",
+      "emailSentSuccess": "E-Mail erfolgreich versendet.",
+      "exportReservationHistoryButton": "Reservierungshistorie exportieren",
+      "exportHutsOccupancyButton": "Hüttenbelegung exportieren",
+      "exportChangeHistoryButton": "Konfigurationshistorie exportieren",
+      "tenantNotConfiguredModal": {
+        "title": "Achtung: Du kannst die Hütte nicht aktivieren.",
+        "description": "Der Mandant ist noch nicht vollständig konfiguriert. Um die Hütte zu aktivieren, muss du zuerst die Konfiguration abschliessen."
+      },
+      "to": "An"
+    },
+    "editHutForm": {
+      "title": "Hütte bearbeiten",
+      "tenant": "Mandant",
+      "hutName": "Hüttenname",
+      "section": "Sektion",
+      "country": "Land",
+      "managedByClub": "Verbandshütte",
+      "hutExist": "Hütte existiert bereits.",
+      "missingField": "Pflichtfeld",
+      "ePayment": {
+        "hobexToggle": "Payment Provider hobex",
+        "entityIdInput": "Entity ID",
+        "entityIdSizeError": "Muss zwischen 32 und 32 Zeichen liegen.",
+        "merchantTokenInput": "Access Token",
+        "payrexxToggle": "Payment Provider payrexx",
+        "instanceInput": "Instance",
+        "apiSecretInput": "API Secret",
+        "apiSecretSizeError": "Die Länge muss 30 Zeichen haben.",
+        "modalTitle": "Zahlungskonfiguration entfernen",
+        "modalContent": "Wenn du die Zahlungskonfiguration der Hütte entfernst, werden die Stornierungs- und No-Show-Gebühren nicht mehr automatisch von der Kreditkarte abgebucht, auch nicht für die in der Vergangenheit getätigten Reservierungen. Willst du wirklich weitermachen?"
+      }
+    },
+    "deleteHut": {
+      "modalTitle": "Hütte löschen",
+      "modalText": "Möchtest du die <strong>{{hutName}}</strong> wirklich löschen? Die Aktion kann nicht rückgängig gemacht werden.",
+      "deleteNotPossibleModal": {
+        "title": "Löschen nicht möglich",
+        "description": "Es ist nicht möglich die Hütte zu löschen, da mindestens eine aktive Reservierung besteht."
+      }
+    },
+    "username": "Benutzername",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "phone": "Telefon",
+    "lastLogin": "Letzter Zugriff",
+    "usersList": {
+      "loginProvider": "Loginprovider / ID",
+      "profi": "Profi",
+      "companyName": "Firmenname",
+      "accessTo": "Hat Berechtigung für",
+      "globalAdmin": "Globaler Admin",
+      "tenantAdmin": "Mandantenadmin",
+      "hutEmployee": "Personal",
+      "hutAdmin": "Hüttenwirt/in",
+      "created": "Erstellt",
+      "modified": "Aktualisiert",
+      "modifiedBy": "Geändert von",
+      "true": "Ja",
+      "false": "Nein",
+      "searchButton": "Suchen",
+      "searchFilter": "Suchen"
+    },
+    "editUser": {
+      "editUserTitle": "Benutzer bearbeiten",
+      "email": "E-Mail",
+      "newPassword": "Neues Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "minimumCharacters": "Mindestens 8 Zeichen eingeben.",
+      "changeEmailTitle": "E-Mailadresse geändert.",
+      "changeEmailMessage": "Du wirst eine E-Mail mit einem Bestätigungslink für diese Änderung erhalten. Bis dahin bleibt deine alte E-Mailadresse gültig.",
+      "changeEmailSuccess": "Deine E-Mailadresse wurde aktualisiert. Du kannst sie nun für das Login verwenden",
+      "emailAlreadyExist": "Die angegebene E-Mailadresse existiert bereits.",
+      "changeEmailAlreadyConsumed": "Möglicherweise hast du den Link bereits verwendet, um deine E-Mailadresse zu bestätigen. Bitte melde dich mit deiner neuen E-Mailadresse an."
+    },
+    "noUserError": "Keine Benutzer gefunden.",
+    "noEntriesError": "Keine Einträge gefunden.",
+    "largeSearchError": "Zu viele Einträge gefunden, bitte passe die Suche an.",
+    "supportContact": "Kontakt zum Support",
+    "snackBarTenantEdited": "Mandant erfolgreich gespeichert.",
+    "snackBarUserEdited": "Daten erfolgreich gespeichert.",
+    "snackBarHutEdited": "Daten erfolgreich gespeichert.",
+    "snackBarSaveError": "Fehler! Daten können nicht gespeichert werden.",
+    "snackBarWrongPasword": "Passwort nicht korrekt.",
+    "password": {
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "authentication": "Zwei-Faktor-Authentisierung",
+      "minimunLengthError": "Mindestens 8 Zeichen eingeben.",
+      "lowerCaseCriteriaMsg": "Enthält mindestens einen Kleinbuchstaben.",
+      "upperCaseCriteriaMsg": "Enthält mindestens einen Großbuchstaben.",
+      "digitsCriteriaMsg": "Enthält mindestens eine Ziffer.",
+      "specialCharsCriteriaMsg": "Enthält mindestens ein Sonderzeichen (!@#()-[{}]:;',?/*~$^+=<>._).",
+      "minCharsCriteriaMsg": "Enthält mindestens 8 Zeichen.",
+      "mostUsedMsg": "Eingegebenes Passwort wird häufig verwendet.",
+      "notStrengthEnoughError": "Passwort ist zu schwach.",
+      "wrongCurrentPassword": "Passwort ist nicht korrekt.",
+      "customCharsCriteriaMsg": "Das Passwort erfüllt alle oben genannten Validierungskriterien.",
+      "maxLengthError": "Das Passwort darf maximal 20 Zeichen enthalten."
+    },
+    "inviteAdminBtn": "Mandantenadmin einladen",
+    "inviteAdmin": {
+      "modalTitle": "Globalen Admin einladen",
+      "modalContent": "Es wurde eine Einladung an die eingegebene E-Mail-Adresse geschickt. Falls der Benutzer bereits ein Konto für diese E-Mail-Adresse besitzt, erhält er nach dem Einloggen die Rolle zugewiesen.  Falls er kein Konto besitzt, muss er sich neu registrieren.",
+      "emailLabel": "E-Mail",
+      "repeatEmailLabel": "E-Mail-Adresse wiederholen",
+      "invitationLanguage": "Sprache der Einladung",
+      "emailNotMatch": "Die E-Mail-Adressen sind nicht identisch.",
+      "otp": "Einmalpasswort"
+    },
+    "missingField": "Pflichtfeld",
+    "snackBarInvitation": "Einladung verschickt",
+    "personalInfo": {
+      "companyName": "Firmenname",
+      "firstName": "Vorname",
+      "name": "Nachname",
+      "address1": "Adresse 1",
+      "address2": "Adresse 2",
+      "optional": "optional",
+      "zipCode": "PLZ",
+      "location": "Ort",
+      "country": "Land",
+      "email": "E-Mail",
+      "mobileNo": "Mobilfunknummer",
+      "landlineNo": "Festnetznummer",
+      "correspondenceLanguage": "Korrespondenzsprache",
+      "invalidFormat": "Ungültiges Format",
+      "phoneFormatError": "Erlaubtes Format z.B.: +41791234567 oder 0791234567",
+      "buttonDeleteAccount": "Benutzerkonto löschen",
+      "buttonMergeAccounts": "Dieses Benutzerkonto mit meinem anderen Konto zusammenführen.",
+      "deleteNotPossibleModal": {
+        "title": "Löschen nicht möglich.",
+        "description": "Du kannst dein Benutzerkonto nicht löschen, da du noch aktive Reservierungen hast. Storniere diese oder warte ab, bis keine davon mehr aktuell ist."
+      },
+      "deleteModal": {
+        "title": "Benutzerkonto löschen",
+        "description": "Möchtest du dein Benutzerkonto wirklich löschen?"
+      },
+      "deleteConfirmationModal": {
+        "title": "Achtung, dein Benutzerkonto wird gelöscht",
+        "description": "Wenn du dein Benutzerkonto löschst, werden deine persönlichen Daten und deine Reservierungen <strong>unwiderruflich</strong> anonymisiert und du kannst auf diese nicht mehr zugreifen. Möchtest du fortfahren?",
+        "buttonConfirm": "Ja, ich bin sicher"
+      }
+    },
+    "genericModals": {
+      "countryLabel": "Land"
+    },
+    "myAccount": {
+      "title": "Mein Profil",
+      "personalInformation": "Persönliche Angaben",
+      "changePassword": "Passwort ändern",
+      "externalProviderUserMsg": "Du musst deine Daten im Benutzerkonto des Alpenvereins anpassen mit dem du dich eingeloggt hast.",
+      "creditCards": "Kreditkarten",
+      "staffMembers": "Personal"
+    },
+    "inviteTenantAdmin": "Mandant Admin einladen",
+    "snackBarInvitationError": "Fehler! Erneut versuchen",
+    "registrationForm": {
+      "title": "Registrierung",
+      "passwordTitle": "Passwort"
+    },
+    "snackBarLoginError": "Der Login hat nicht funktioniert. Bitte versuche es nochmals.",
+    "snackBarCompleteInvitationError": "Die Einladung hat nicht funktioniert.",
+    "snackBarCheckInvitationError": "Fehler beim Überprüfen der Einladung. Bitte versuche es erneut.",
+    "snackbarTooManyAttempts": "Du kannst es in {{param1}} Sekunden erneut versuchen.",
+    "snackBarErrorPreBook": "Huch! Etwas ist schief gelaufen.",
+    "login-failed": {
+      "210": "Der Login hat nicht funktioniert. Bitte überprüfe deine Login-Daten und versuche es erneut. Wenn du dich beim letzten Mal mit einem Benutzerkonto deines Alpenvereins, z. B. SAC, angemeldet hast, logge dich damit wieder ein.",
+      "228": "USER_LOCKED",
+      "201": "USER_EMAIL_NOT_FOUND",
+      "203": "USER_CONFIRMATION_NOT_FOUND",
+      "219": "USER_LOGIN_RATE_LIMIT_ERREICHT",
+      "redirect": "Zurück zur Loginseite",
+      "back": "Zurück"
+    },
+    "invalidField": "Falsches Format. Bitte neu eingeben.",
+    "passwordNotMatch": "Passwörter sind nicht identisch.",
+    "snackBarDataSaved": "Daten erfolgreich gespeichert.",
+    "completeRegistration": "Bitte melde dich an, um die Registrierung abzuschließen.",
+    "logOut": "Ausloggen",
+    "hutLanguageForm": {
+      "description": "Wenn diese Sprachen aktiviert sind, werden diese in der Gästeansicht entsprechend angezeigt.",
+      "firstLanguage": "Erste Sprache",
+      "secondLanguage": "Zweite Sprache (optional)",
+      "thirdLanguage": "Dritte Sprache (optional)",
+      "fourthLanguage": "Vierte Sprache (optional)",
+      "languageDouble": "Sprache doppelt"
+    },
+    "resetPassword": {
+      "title": "Passwort für dein Benutzerkonto zurücksetzen.",
+      "instruction": "Wenn du ein Benutzerkonto über einen alpinen Verband verwendest, musst du dort das Passwort zurücksetzen {{linkToLoginPage}}. \n\nAndernfalls gib die E-Mail-Adresse ein, die du für den Login verwendet hast. Falls die Email-Adresse registriert ist, bekommst du in ein paar Minuten eine Mail mit einem Link zum Zurücksetzen des Passworts zugesandt.",
+      "sendBtn": "E-Mail mit Link versenden",
+      "email": "E-Mail",
+      "userEmailNotFound": "E-Mail wurde nicht gefunden.",
+      "checkYourInboxTitle": "Prüfe deinen Posteingang.",
+      "checkYourInboxInstruction": "Wir haben soeben Anweisungen und einen Link zum Zurücksetzen des Passworts an die E-Mail-Adresse: <strong>{{emailAddress}}</strong> gesendet. Es kann ein paar Minuten dauern, bis die E-Mail zugestellt wird.",
+      "checkYourInboxBtn": "Zurück zur Login Seite",
+      "resetPasswordNotAllowed": "Die Emailadresse ist mit einem Konto eines alpinen Verbands verbunden. Bitte ändere das Passwort auf der Login Seite des alpinen Verbands."
+    },
+    "errorPage": {
+      "title": "Ups!",
+      "description": "Irgendetwas ist schiefgelaufen.",
+      "detail": "Scheint als wäre diese Seite auf eine Wanderung gegangen.",
+      "homeRedirectBtn": "Zurück zur Login Seite",
+      "tenantCodeNotExist": "Mandant nicht vorhanden"
+    },
+    "inviteHutAdmin": {
+      "modalTitle": "Hütten-Admin einladen",
+      "openModalButton": "Hütten-Admin einladen"
+    },
+    "create-password": {
+      "title": "Erstelle ein neues Passwort.",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "saveBtn": "Speichern",
+      "strenght": "Stark",
+      "resetBtn": "Passwort zurücksetzen",
+      "operationError": "Das Erstellen eines neuen Passworts ist fehlgeschlagen. Versuche es erneut.",
+      "operationSuccess": "Passwort erfolgreich gespeichert.",
+      "linkExpiredMsg": "Der Link ist nicht mehr gültig. Bitte setze das Passwort erneut zurück."
+    },
+    "manageHut": {
+      "generalTab": "Allgemein",
+      "staffTab": "Personal",
+      "roomsTab": "Zimmer",
+      "sleepingPlaces": "Schlafplätze",
+      "manageCapacities": "Kapazitätsänderungen",
+      "reservations": "Reservierungen",
+      "freeFields": "Freifelder",
+      "reservationList": "Reservierungsliste",
+      "coordinatesPlaceholder": "Geokoordinaten im Format WGS84 (xx.xx/yy.yy)"
+    },
+    "hutInformation": {
+      "contactInformation": "Kontaktdaten",
+      "hutId": "Hütten ID",
+      "hutWarden": "Hüttenwirt/in",
+      "email": "E-Mail",
+      "phone": "Hüttentelefonnummer",
+      "hutInformation": "Informationen zur Hütte",
+      "coordinates": "Koordinaten",
+      "altitude": "Höhe ü. Meer",
+      "headerImage": "Hüttenbild",
+      "uploadButton": "Bild hochladen",
+      "languages": "Verfügbare Sprachen",
+      "languageDescription": "Wähle die Sprachen aus, in denen du Informationen über die Hütte hinzufügen möchtest (Beschreibung der Hütte, Halbpension, usw.).",
+      "hutDescription": "Hüttenbeschreibung",
+      "descriptionLabel": "Beschreibung",
+      "website": "Link zur Webseite",
+      "websiteOptional": "Webseite",
+      "unlockHut": "Hütte aktivieren",
+      "hutOnline": "Die Hütte ist aktiviert.",
+      "hutOffline": "Die Hütte ist gesperrt.",
+      "confirmMessage": "Die Plätze in deiner Hütte können nun online reserviert werden.",
+      "offlineMessage": "Die Plätze in deiner Hütte können nicht online reserviert werden.",
+      "gtc": "AGB",
+      "uploadGtc": "AGB hochladen",
+      "priceList": "Preisliste",
+      "uploadPriceList": "Preisliste hochladen",
+      "sleepingPlaces": "Schlafplätze gesamt",
+      "uploadImage": "Bild hochladen",
+      "dragImage": "Bild hierher ziehen",
+      "confirmSaved": "Daten erfolgreich gespeichert.",
+      "errorSaved": "Fehler beim Speichern! Beachte die rot markierten Felder.",
+      "reservationOnlineMessage": "Die Plätze in deiner Hütte können nun online reserviert werden.",
+      "reservationOfflineMessage": "Die Plätze in deiner Hütte können nicht online reserviert werden.",
+      "EN": "Englisch (EN)",
+      "IT": "Italienisch (IT)",
+      "FR": "Französisch (FR)",
+      "SL": "Slowenisch (SL)",
+      "DE_DE": "Deutsch (DE)",
+      "DE_CH": "Deutsch (CH)",
+      "fileUploadError": "Bitte lade alle erforderlichen Dateien für jede aktivierte Sprache hoch.",
+      "configurationTooltip": "Die Hütte kann nicht online geschaltet werden, wenn Felder unter den Reiter \"Zimmer\", \"Schlafplätze\", \"Reservierungen\" und \"Freifelder\" nicht korrekt konfiguriert sind.",
+      "configurationModal": {
+        "title": "Warnung",
+        "description": "Die Hütte ist (noch) nicht vollständig konfiguriert. Die Konfiguration der Hütte muss abgeschlossen sein, um diese zu aktivieren.",
+        "hutRooms": "Zimmer",
+        "hutSleepingPlaces": "Schlafplätze",
+        "hutReservations": "Reservierungen",
+        "hutFreeFields": "Freifelder",
+        "hutGeneralInfo": "Allgemein"
+      },
+      "coordinatesError": "Ungültiges Format, muss WGS84-kompatibel sein (z.B.: 46.123456/6.123456 oder 46.12, 6.12)"
+    },
+    "hutReservation": {
+      "title": "Eingabefelder für das Reservierungsformular",
+      "infoText": "Definiere die Felder, die dem Gast in der Reservierung angezeigt werden.",
+      "halfBoard": "Halbpension",
+      "preselected": "Vorausgewählt",
+      "yes": "Ja",
+      "no": "Nein",
+      "informationText": "Beschreibung",
+      "vegetarian": "Vegi",
+      "children": "Kinder",
+      "mountain_guide": "Bergführer/innen",
+      "comments": "Kommentar",
+      "deadlines": "Fristen",
+      "standard": "Standard",
+      "group": "Gruppen",
+      "professional": "Profi",
+      "external_provider": "Alpine Verbände",
+      "furtherSettings": "Weitere Einstellungen",
+      "errorSaved": "Fehler beim Speichern. Beachte die rot markierten Felder.",
+      "confirmSaved": "Daten erfolgreich gespeichert",
+      "cancelReservation": "Reservierung stornieren",
+      "alreadySubmitted": "Reservierung bereits übermittelt.",
+      "bookingTimeExpired": "Die Zeit zum Reservieren ist abgelaufen.",
+      "genericError": "Allgemeiner Fehler",
+      "emailConfiguration": {
+        "title": "E-Mail Konfiguration",
+        "descriptionFirst": "Hier kannst du definieren, ob du alle E-Mails, die das System versendet als Kopie erhalten möchtest.",
+        "dropdownTitle": "Kopie der E-Mails erhalten",
+        "always": "Alle",
+        "has_guest_comment": "Nur mit Gastkommentaren",
+        "never": "Nie",
+        "descriptionSecond": "Wenn du noch zusätzliche Infos in die Bestätigungsmails an die Gäste hinzufügen möchtest, kannst du dies hier tun.",
+        "append": "Dein hinzugefügter Text",
+        "attachments": "Anhänge",
+        "uploadFile": "Datei hochladen",
+        "gtc": "AGB",
+        "uploadGTC": "AGB hochladen",
+        "priceList": "Preisliste",
+        "uploadPriceList": "Preisliste hochladen",
+        "validationError": "Übersetzung fehlt in:"
+      },
+      "groupSize": {
+        "persons": "Personen",
+        "title": "Gruppe ab",
+        "hintText": "Ab dieser Personenzahl handelt es sich um eine Gruppenreservierung."
+      },
+      "confirmationWithin": {
+        "hours": "Stunden",
+        "title": "Bestätigung innerhalb",
+        "hintText": "Anzahl Stunden in denen ein Gast, die erste Reservierung bestätigen muss."
+      },
+      "reservationFrom": {
+        "days": "Tage",
+        "title": "Reservierung frühestens ab",
+        "hintText": "Anzahl Tage vor Ankunft, ab der ein Gast frühestens eine Reservierung vornehmen kann."
+      },
+      "reservationUntil": {
+        "hours": "Stunden",
+        "title": "Reservierungsfrist",
+        "hintText": "Anzahl Stunden vor 18:00 Uhr am Ankunftstag bis zu der ein Gast eine Reservierung vornehmen kann."
+      },
+      "mutationUntil": {
+        "hours": "Stunden",
+        "title": "Änderungfrist",
+        "hintText": "Anzahl Stunden vor 18:00 Uhr am Ankunftstag bis zu der eine Reservierung vom Gast geändert werden kann."
+      },
+      "cancellationUntil": {
+        "hours": "Stunden",
+        "title": "Stornierungsfrist",
+        "hintText": "Anzahl Stunden vor 18:00 Uhr am Ankunftstag bis zu der eine Reservierung vom Gast storniert werden kann."
+      },
+      "waitingList": {
+        "title": "Warteliste",
+        "waitingListActive": "Warteliste aktiviert",
+        "reminder": "Erinnerungszeitraum in Tagen",
+        "confirmationPeriod": "Bestätigungsfrist",
+        "hours": "Stunden",
+        "hintTestList": {
+          "reminder": "Wenn innerhalb dieses Erinnerungszeitraums in Tagen mind. eine Reservierung auf der Warteliste ist, wirst du mit einer Meldung im System erinnert.",
+          "confirmationPeriod": "Innerhalb dieser Frist muss der Gast die Reservierung über den Link in der E-Mail bestätigen, wenn die Reservierung von der Warteliste akzeptiert wurde."
+        }
+      },
+      "cancellationFees": {
+        "title": "No-Show/ Storno Gebühren aktivieren",
+        "none": "Keine",
+        "noShow": "No-Show",
+        "simple": "Einfach",
+        "staggered": "Gestaffelt",
+        "days": "Tage",
+        "amount": "Betrag",
+        "noShowOnly": "No-Show Gebühren aktivieren",
+        "cancellationFees": "Storno Gebühren aktivieren",
+        "level1": "Stufe 1",
+        "level2": "Stufe 2",
+        "cancellationFeesTitle": "Storno Gebühren",
+        "noShowFeesTitle": "No-Show Gebühren",
+        "hintTextList": {
+          "noShowAmount": "Der Betrag kann im Falle eines No-Shows maximal verrechnet werden.",
+          "cancellationDaysSimple": "Die Tage geben an, ab wann Storno Gebühren verrechnet werden. Berechnungsgrundlage ist der Anreisetag 18 Uhr.",
+          "cancellationAmountSimple": "Betrag, der vom Gast innerhalb dieser Stornofrist eingezogen wird.",
+          "cancellationDaysStaggered": "Die Tage geben an, ab wann Storno Gebühren verrechnet werden. Bei einer gestaffelten Storno Gebühr gibt es zwei Stufen, die sich im Zeitraum und Betrag unterscheiden. Berechnungsgrundlage ist der Anreisetag 18 Uhr.",
+          "cancellationAmountStaggered": "Betrag, der vom Gast innerhalb dieser Stornofrist eingezogen wird."
+        }
+      }
+    },
+    "sleepingPlaces": {
+      "toggleMessage": "Schlafplatzzuweisung auf Zimmerebene",
+      "categoryDescription": "Kategoriebeschreibung",
+      "winterRoom": "Winterraum",
+      "unsupervisedMode": "Unbewirtschafteter Betrieb",
+      "totalSleepingPlaces": "Schlafplätze total",
+      "sleepingPlacesCategory": "{{categoryName}} {{number}} Schlafplätze",
+      "sleepingPlacesWinterroomCategory": "{{categoryName}} {{number}} Schlafplätze",
+      "showFormatted": "Feld formatiert anzeigen",
+      "saveAction": "Schlafplätze speichern",
+      "errorSaved": "Fehler beim Speichern. Bitte beachte die rot markierten Felder.",
+      "confirmSaved": "Daten erfolgreich gespeichert.",
+      "overbookingWarningTitle": "Zimmerzuordnung zur Kategorie löschen",
+      "overbookingWarningDescription": "Möchtest du die Anzahl Plätze wirklich ändern? Es gibt bereits Reservierungen in der Zukunft. Diese Anpassung führt zu einer Überbuchung.",
+      "confirmUnlink": "Ja, entfernen",
+      "cancelUnlink": "Abbrechen",
+      "errorSavingModalTitle": "Das Speichern der Konfiguration ist nicht möglich.",
+      "errorSavingModalDescription": "Um diese Konfiguration zu speichern, musst du mindestens eine Kategorie aktivieren.",
+      "errorSavingModalButton": "Schließen",
+      "linkedToReservationWarningModal": {
+        "title": "Warnung: die Kategorie hat noch aktive Reservierungen.",
+        "description": "Du hast eine Kategorie mit aktiven Reservierungen deaktiviert. Die betroffenen Reservierungen werden in die Kategorie 'Unbekannte Kategorie' verschoben. Die Schlafplatzzuweisung muss manuell angepasst werden. Möchtest du fortfahren?",
+        "buttonYes": "Ja",
+        "buttonNo": "Nein"
+      }
+    },
+    "hutStaffPage": {
+      "userId": "ID",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "phone": "Telefonnummer",
+      "email": "E-Mail",
+      "Yes": "Ja",
+      "No": "Nein",
+      "isHutAdmin": "Admin",
+      "inviteHutStaffButton": "Personal einladen",
+      "addAdminRightsButton": "Adminrechte hinzufügen",
+      "removeAdminRightsButton": "Adminrechte entfernen",
+      "removeStaffMemberButton": "Personal entfernen"
+    },
+    "inviteHutStaff": {
+      "modalTitle": "Personal einladen",
+      "modalContent": "Das System verschickt eine Einladung an diese E-Mail-Adresse. Falls  für diese E-Mail-Adresse bereits ein Benutzerkonto existiert, wird nach dem erfolgreichem Login die Rolle zugewiesen. Falls nicht, muss zuerst ein Benutzerkonto erstellt werden."
+    },
+    "deleteHutStaff": {
+      "modalTitle": "Personal entfernen",
+      "modalDetail": "Möchtest du wirklich das Personal entfernen?",
+      "buttonConfirm": "Entfernen",
+      "buttonCancel": "Abbrechen"
+    },
+    "deleteFreefieldModal": {
+      "modalTitle": "Freifeld löschen",
+      "modalDetail": "Möchtest du das Freifeld <strong>{{Label}}</strong> wirklich löschen? Es kann nicht rückgängig gemacht werden.",
+      "buttonConfirm": "Ja, löschen",
+      "buttonCancel": "Abbrechen"
+    },
+    "roomCategories": {
+      "servicedMode": "Bewirtschaftet",
+      "category": "Kategorie",
+      "shortName": "Kurzbezeichnung",
+      "addCategoryBtn": "Kategorie hinzufügen",
+      "unservicedMode": "Unbewirtschaftet",
+      "unservicedCategory": "Unbewirtschaftet",
+      "optional": "Optional",
+      "validationError": "Übersetzung für Zimmerkategorie in {{Language}} fehlt!",
+      "validationErrorSummary": "Übersetzung für Zimmerkategorie fehlt für die folgenden Sprachen: {{languages}}",
+      "confirmSaved": "Gespeichert",
+      "errorSaved": "Fehler beim Speichern. Bitte beachte die rot markierten Felder.",
+      "modalValidationTitle": "Pflichtfelder fehlen",
+      "modalValidationDescription": "Kategorie Überprüfung"
+    },
+    "freeFields": {
+      "title": "Freifelder",
+      "buttonAdd": "Feld hinzufügen",
+      "buttonAddValue": "Wert hinzufügen",
+      "buttonRemove": "Freifeld entfernen",
+      "fieldType": "Feldtyp",
+      "infoText": "Info-Text",
+      "shortText": "Einzeiliger Text",
+      "longText": "Mehrzeiliger Text",
+      "number": "Zahl",
+      "checkbox": "Checkbox",
+      "selection": "Auswahlliste",
+      "mandatoryField": "Pflichtfeld",
+      "usage": "Vewendung",
+      "internalOnly": "Intern, nur für Personal sichtbar",
+      "labelOnReservation": "Feldbezeichung auf dem Reservierungsformular",
+      "descriptionReservation": "Beschreibung für das Reservierungsformular",
+      "preselected": "Vorausgewählt",
+      "confirmSaved": "Gespeichert",
+      "errorSaved": "Fehler beim Speichern. Bitte beachte die rot markierten Felder.",
+      "maximumValue": "Maximum",
+      "values": "Werte",
+      "freeFieldType": {
+        "INFO_TEXT": "Meldung",
+        "SHORT_TEXT": "Einzeiliger Text",
+        "LONG_TEXT": "Mehrzeiliger Text",
+        "NUMBER": "Nummer",
+        "CHECKBOX": "Checkbox",
+        "SELECTION": "Auswahl"
+      },
+      "unknown": "Undefiniert",
+      "maximumValidation": "Das Maximum ist {{maximumValue}}.",
+      "selectionValuesValidation": "Übersetzung für das Feld {{numberID}} in {{Language}} fehlt.",
+      "validationError": "Übersetzung in {{Language}} fehlt.",
+      "validationSizeError": "Eintrag fehlt",
+      "validation": "Überprüfung freie Felder",
+      "value": "Wert",
+      "errorsValidationTitle": "Pflichtfelder fehlen",
+      "missingField": "Fehlendes Feld",
+      "changeOrderToggle": "Reihenfolge ändern",
+      "externalUse": "Extern",
+      "internalUse": "Intern"
+    },
+    "dialogModal": {
+      "buttonClose": "Schließen",
+      "buttonCancel": "Abbrechen"
+    },
+    "hutReservationHero": {
+      "hutWarden": "Hüttenwirtsleute",
+      "hutPhone": "Hüttentelefonnummer",
+      "totalSleepingPlaces": "Schlafplätze total",
+      "heightAboveSea": "Höhe ü. Meer",
+      "coordinates": "Koordinaten",
+      "buttonNext": "Weiter",
+      "buttonSendNow": "Absenden",
+      "buttonUpdateReservation": "Aktualisieren",
+      "buttonBack": "Zurück",
+      "buttonCancel": "Abbrechen",
+      "cancelModalTitle": "Abbrechen",
+      "cancelModalMessage": "Möchtest du diesen Reservierungsvorgang wirklich abbrechen?",
+      "editModalMessage": "Möchtest du die Änderungen in der Reservierung verwerfen?",
+      "expressModalMessage": "Bist du sicher, dass du fortfahren möchtest?",
+      "editSuccessMessage": "Die Reservierung wurde aktualisiert.",
+      "welcomeMessage": "Bitte wähle dein gewünschtes Datum aus. Danach werden dir die verfügbaren Schlafplätze pro Kategorie angezeigt.",
+      "waitingListMessage": "Wenn in der gewünschten Kategorie zu den gewählten Daten nicht genügend Plätze verfügbar sind, kannst du mit der Reservierung fortfahren und wirst auf die <b>Warteliste</b> gesetzt.",
+      "bookForDay": "Nur {{date}} buchen"
+    },
+    "saveChangesPopup": {
+      "save": "Änderungen speichern",
+      "cancel": "Weiter ohne Speichern",
+      "message": "Wenn du den Tab wechselst ohne zu speichern, gehen deine Änderungen verloren. Möchtest du speichern?"
+    },
+    "hutCheckAvailability": {
+      "dateFromTo": "Datum von - bis",
+      "noOfPeople": "Anzahl Personen",
+      "checkAvailability": "Verfügbarkeit prüfen",
+      "button_nextReservation": "Nächstmögliche Reservierung anzeigen",
+      "errorMessages": {
+        "errorMessage600": "Dieses Datum liegt außerhalb des möglichen Reservierungszeitraums. Bitte kontaktiere das Hüttenteam.",
+        "errorMessage113": "Die Hütte ist nicht für Reservierungen geöffnet.",
+        "errorMessage601": "Dieses Datum liegt außerhalb des möglichen Reservierungszeitraums. Bitte kontaktiere das Hüttenteam.",
+        "errorMessage602": "Die Reservierung ist nicht möglich. Die ausgewählte Zeitspanne liegt im bewirtschafteten (endet am {{end_date}}) und unbewirtschafteten Betrieb der Hütte. Bitte passe deine Reservierungsdaten an.\n",
+        "errorMessage603": "Es gibt nicht genügend Plätze für deine Reservierung.",
+        "doubleDateError": "An- und Abreisedatum dürfen nicht identisch sein.",
+        "maxNightsError": "Du hast die maximale Anzahl buchbarer Nächte von {{maxNumberOfNights}} Nächten überschritten. Bitte passe deine Daten an.",
+        "unLockHutError": "Diese Hütte ist nicht freigeschaltet. Du kannst zur Zeit keine Reservierung erfassen. Bitte kontaktiere das Hüttenteam.",
+        "errorMessage609": "Die Hütte ist bis zum {{end_date}} geschlossen.",
+        "errorMessage613": "Die Hütte is ab dem {{end_date}} geschlossen.",
+        "errorMessage614": "Die Reservierung ist nicht möglich. Die ausgewählte Zeitspanne liegt im unbewirtschafteten (endet am {{end_date}}) und bewirtschafteten Betrieb der Hütte. Bitte passe deine Reservierungsdaten an.",
+        "noPlacesEntirePeriod": "In den ausgewählten Kategorien sind keine Plätze mehr verfügbar.",
+        "unassignedGuestsError": "Bitte weise die {{nr_people_in_unknown_category}} Gäste den gewünschten Kategorien zu.",
+        "notEnoughSleepingPlaces": "Es sind nicht genügend Plätze vorhanden."
+      },
+      "unservicedPeriod": "Unbewirtschafteter Zeitraum",
+      "unservicedPeriodDescription": "Beschreibung unbewirtschafteter Zeitraum",
+      "waitingListMessage": "Falls du mehr Plätze benötigst, als zur Verfügung stehen, kannst du dich auf die Warteliste setzen lassen.",
+      "waitingListToggleLabel": "Flexible Schlafplatzzuteilung",
+      "waitingListToggleDescription": "Wenn du diese Option auswählst, können die Hüttenwirtsleute einen Schlafplatz zuweisen - unabhängig  von deiner gewünschten Kategorie.",
+      "invalidDate": "Bitte wähle ein gültiges Datum aus.",
+      "date": "Datum",
+      "freePlaces": "Freie Plätze",
+      "waitingListDescription": "Du kannst eine andere verfügbare Kategorie auswählen oder das Folgende bestätigen:",
+      "waitingListAcceptance": "Wenn du fortfährst, wirst du auf die Warteliste gesetzt. Du wirst per E-Mail informiert, wenn Plätze frei sind."
+    },
+    "hutOvernightStay": {
+      "title": "Übernachtung",
+      "description": "Bitte alle Felder ausfüllen.",
+      "dateFromTo": "Datum von - bis",
+      "spacesInRoomCategory": "Plätze in {{roomCategory}}",
+      "numberOfChildren": "Davon Kinder",
+      "mountainGuide": "Davon Bergführer/innen",
+      "halfBoard": "Halbpension",
+      "vegetarian": "Davon Vegi",
+      "priceList": "Preisliste",
+      "groupName": "Gruppe",
+      "comments": "Kommentar",
+      "buttonNext": "Weiter",
+      "buttonBack": "Zurück",
+      "buttonCancel": "Abbrechen",
+      "yes": "Ja",
+      "no": "Nein",
+      "maxNumberValidator": "Die Anzahl darf nicht größer als die Gesamtanzahl sein.",
+      "welcomeMessage": "Bitte fülle hier die Informationen für deine Übernachtung aus."
+    },
+    "hutPersonalData": {
+      "title": "Persönliche Daten",
+      "gtcFile": "AGB gelesen und akzepiert",
+      "privacyPolicy": "Datenschutzerklärung",
+      "informationalText": "Dies sind vom Hüttenteam erfassten Adressdaten, bitte passe diese gegebenenfalls an, da von den Daten in deinem Benutzerprofil abweichen können."
+    },
+    "hutSummary": {
+      "title": "Zusammenfassung",
+      "description": "Bitte überprüfe deine Reservierungsdaten.",
+      "titlePersonalInfo": "Persönliche Daten",
+      "titleOvernightStay": "Übernachtung"
+    },
+    "hutPayment": {
+      "title": "Kreditkartendaten",
+      "infoMessage": "Die Kreditkarte wird verwendet, um eine allfällige Storno oder No-Show Gebühren abzusichern. Auch eine Debitkarte mit Kreditkartenfunktion kann verwendet werden. Während der Autorisierung wird die Karte mit max. 1 EUR belastet und im Anschluss wieder storniert. Bitte beachte, dass du die Übernachtungsgebühren auf der Hütte bezahlen musst.",
+      "verify": "Bitte Kreditkartendaten überprüfen",
+      "creditCardDetails": "Bestehende Kreditkarte verwenden: {{cardType}} {{cardNumber}}, läuft ab {{formattedExpirationDate}}",
+      "registerCard": "Neue Kreditkarte registrieren und bestehende löschen.",
+      "missingProfiCard": "Du benötigst eine gültige Kreditkarte, um die Reservierung abzuschließen. Es ist derzeit keine gültige Kreditkarte hinterlegt.",
+      "info": {
+        "loadingProvider": "Die Verbindung zum Payment Provider wird hergestellt.",
+        "actionPayMessage": "Klicke auf \"Absenden\", um die Reservierung abzuschliessen. Anschliessend wirst du auf die Seite des Payment Providers weitergeleitet. Dort musst du deine Kreditkartendaten eingeben.",
+        "editCardMessage": "Klicke auf \"Kreditkarte bearbeiten\", um die Kreditkartendaten zu speichern.",
+        "editReservationActionMessage": "Klicke auf \"Jetzt aktualisieren\", um Prozess abzuschliessen."
+      }
+    },
+    "paginator": {
+      "items_per_page": "Pro Seite",
+      "of_label": "von"
+    },
+    "hutIdentificationUser": {
+      "title": "Einloggen",
+      "description": "Wenn du ein Alpenvereinskonto besitzt, dann logge dich entsprechend ein. \n\n",
+      "accountExistTitle": "Warnung: Zusammenführung von zwei Benutzerkonten!",
+      "accountExistMessage": "Beim Versuch, dich über den Login deines alpinen Verbands (ÖAV, SAC) anzumelden, wurde festgestellt, dass zweites Benutzerkonto im Hut Reservation mit der gleichen E-Mail Adresse besteht. \n\nWenn du auf \"Ja\" klickst, stimmst du zu, dass diese zwei Konten im Hut Reservation zusammengelegt werden. Danach kannst du dich nur noch mit dem Konto vom Alpinen Verband einloggen. \nDamit die Konten zusammengeführt werden können musst du dich jetzt einmalig mit den Login Daten vom Hut Reservation Konto anmelden. Wenn du das Passwort nicht kennst, dann nutze die Passwort vergessen Funktion. Jedoch wird dann der Prozess des Zusammenführens unterbrochen und du musst dies erneut beginnen.  \n\nWenn du auf “Nein” klickst, werden die zwei Konten nicht zusammengelegt. Du kannst dich entweder mit deinem Hut Reservation Konto einloggen oder einen neuen Benutzer registrieren. Falls du weitere Konten registriert hast, kannst du auch später im Profil diese Konten verbinden.",
+      "yes": "Ja",
+      "no": "Nein",
+      "timeExpiredMessage": "Deine Session ist abgelaufen. Bitte logge dich neu ein.",
+      "welcomeMessage": "Bitte gib hier deine persönlichen Daten ein, um fortzufahren."
+    },
+    "confirmationPage": {
+      "title": "Deine Reservierung wurde erfolgreich übermittelt",
+      "descriptionExistingAccount": "Vielen Dank! <b>Deine Reservierung {{reservationNumber}} ist bestätigt.</b> Die Reservierungsbestätigung wurde an {{email}} gesendet. <br><br>Falls du die Reservierung <b>anpassen oder stornieren</b> möchtest, benutze den Link in der Reservierungsbestätigung oder logge dich bei Hut Reservation ein.",
+      "descriptionExistingAccountWaitingList": "Vielen Dank! Deine Reservierung {{reservationNumber}} wurde auf die <b>Warteliste</b> gesetzt. Die E-Mail wurde an {{email}} gesendet. <br><br>Falls du die Reservierung <b>anpassen oder stornieren</b> möchtest, benutze den Link in der E-Mail oder logge dich bei Hut Reservation ein.",
+      "confirmNewRegistration": "Die Reservierung muss noch bestätigt werden!",
+      "descriptionNewRegistration": "Bitte bestätige deine Reservierung {{reservationNumber}}, indem du den Link anklickst, der dir auf die E-Mail Adresse ({{email}}) zugestellt wurde. <br><br><strong>Ohne Bestätigung innerhalb dieser Frist von {{hours}} Stunden verfällt deine Reservierung</strong>.",
+      "buttonNewRegistration": "Ich verstehe, ich werde meine E-Mails prüfen."
+    },
+    "reservationConfirm": {
+      "reservationSubmittedMessage": "Vielen Dank für die Bestätigung deiner E-Mail Adresse. Die Reservierungsbestätigung wurde an {{email}} gesendet.",
+      "reservationWaitingListMessage": "Vielen Dank! <b<Deine Reservierung {{reservationNumber}} ist bestätigt.<b/>Die Reservierungsbestätigung wurde an {{email}} gesendet.<br><br>Falls du die Reservierung <b>anpassen oder stornieren</b> möchtest, benutze den Link in der Reservierungsbestätigung oder logge dich bei Hut Reservation ein.",
+      "errorMessage": "Achtung: Ein Fehler ist aufgetreten!<br>Deine Reservierung wurde leider nicht übernommen. Entweder ist die Gültigkeitsdauer ({{param1}} Std.) des Links abgelaufen oder es ist ein anderer Fehler aufgetreten.<br>Bitte versuche, die Reservierung erneut zu erstellen.",
+      "confirmExpressError": "Achtung: Ein Fehler ist aufgetreten!<br>Deine Reservierung wurde leider nicht übernommen. Entweder ist die Gültigkeitsdauer ({{param1}} Std.) des Links abgelaufen oder es ist ein anderer Fehler aufgetreten.<br>Bitte kontaktiere das Hüttenteam.",
+      "reservationListButton": "Meine Reservierungen",
+      "genericError": "Etwas ist schief gelaufen!",
+          "timeExpiredMessage": "Ihre Zeit zur Vervollständigung der Reservierung ist abgelaufen. Die Reservierung wurde storniert. Bitte versuchen Sie es erneut."
+    },
+    "markdownTooltip": "Fettschrift: **fett**\nKursiv: *kursiv*\nListe : ### Titel\n\t- Element 1\n\t- Element 2\nAufzählung: ### Titel\n\t1. Element a\n\t2. Element b\nLink: [Meine Webseite](https://etc.com)\nNeue Absatz: linie\\\n\tlinie2",
+    "reservationList": {
+      "title": "Meine Reservierungen",
+      "nrOfPeople": "Anzahl Personen",
+      "status": "Status",
+      "reservation": "Reservierung",
+      "possibleStatus": {
+        "submitted": "Übermittelt",
+        "confirmed": "Bestätigt",
+        "submitted for waiting list": "Übermittelt für Warteliste",
+        "on waiting list": "Warteliste",
+        "cancelled": "Storniert",
+        "on waiting list admitted": "Auf Warteliste akzeptiert",
+        "checked in": "Eingecheckt",
+        "no-show": "No-Show",
+        "no-show-charged": "No-Show belasted",
+        "tentative": "Provisorisch"
+      },
+      "openButton": "Aktuell",
+      "archived": "Vergangene",
+      "search": "Suchen",
+      "dateFromTo": "Datum von - bis",
+      "loadMoreReservations": "Weitere Reservierungen anzeigen",
+      "cancel": "Abbrechen",
+      "apply": "Übernehmen",
+      "noEntriesFound": "Keine Reservierungen.",
+      "addReservation": "Neue Reservierung hinzufügen",
+      "addReservationButton": "Neue Reservierung",
+      "selectHut": "Hütte auswählen",
+      "missingDateToMessage": "Bitte verwende das folgende Datumsformat: TT.MM.JJJJ - TT.MM.JJJJ",
+      "ok": "OK",
+      "noArchivedReservations": "Du hast keine vergangene Reservierungen.",
+      "noOpenReservations": "Du hast keine aktuellen Reservierungen.",
+      "editReservation": "Bearbeiten",
+      "newReservation": "Reservierung für diese Hütte erstellen",
+      "cancelReservation": "Stornieren",
+      "datePickerError": "Bitte verwende das folgende Format: TT.MM.JJJJ - TT.MM.JJJJ",
+      "resetButton": "Zurücksetzen",
+      "details": "Details",
+      "hut": "Hütte"
+    },
+    "hut-manage-capacity": {
+      "mainTitle": "Kapazitätsänderungen",
+      "dateFromTo": "Datum von - bis",
+      "cancel": "Abbrechen",
+      "apply": "OK",
+      "mode": "Modus",
+      "dateFrom": "Von",
+      "dateTo": "Bis",
+      "capacity": "Kapazität",
+      "title": "Benennung der Kapazitätsänderung",
+      "recurring": "Wiederholend",
+      "open": "Aktuell",
+      "archived": "Vergangene",
+      "serviced": "Bewirtschaftet",
+      "unserviced": "Unbewirtschaftet",
+      "closed": "Geschlossen",
+      "deviationTitle": "Benennung der Kapazitätsänderung",
+      "validityDate": "Gültigkeit von - bis",
+      "recurrenceDetail": "Jede {{num}} Woche wiederholen am",
+      "totalCapacity": "Gesamtkapazität: {{totCapacity}}",
+      "numberOfSleepingPlace": "Anzahl Schlafplätze",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "Beschreibung",
+      "makeRecurrence": "Wiederholung eintragen",
+      "editRecurrence": "Wiederholung bearbeiten",
+      "addDeviationButton": "Kapazitätsänderung hinzufügen",
+      "removeDeviationButton": "Kapazitätsänderung löschen",
+      "okButton": "OK",
+      "cancelButton": "Abbrechen",
+      "saveButton": "Speichern",
+      "required": "Bitte die Pflichtfelder ausfüllen.",
+      "modals": {
+        "errorSaveCapacityChangeTitle": "Kapazitätsänderung nicht möglich",
+        "errorSaveCapacityChangeActiveReservation": "Die Hütte kann nicht geschlossen werden, weil Reservierungen zu diesem Zeitpunkt vorhanden sind.",
+        "errorSaveCapacityChangeModeReservation": "Es darf keine Reservierungen geben, welche in einem Betriebsmodus beginnen und in einem anderen Betriebsmodus enden.",
+        "errorSaveCapacityChangeOverlap": "Die Kapazitätsänderungen dürfen sich nicht überschneiden.",
+        "errorSaveCapacityChangeOverbookingTitle": "Achtung: die Kapazität wird damit verringert.",
+        "errorSaveCapacityChangeOverbooking": "Wenn du die Kapazitätsänderung löschst, kommt es zu einer Überbuchung.",
+        "errorSaveCapacityChangeOverbookingSave": "Möchtest du die Anzahl Plätze wirklich ändern? Es gibt bereits Reservierungen in diesem Zeitraum. Diese Anpassung führt zu einer Überbuchung.",
+        "errorSaveCapacityChangeSwitchTitle": "Es gibt bereits eine Reservierung im {{mode}} Modus in diesem Zeitraum",
+        "errorSaveCapacityChangeSwitchDesc": "Möchtest du den Modus wirklich ändern? Es gibt bereits {{number}} Reservierungen im Modus \"{{mode}}\" in diesem Zeitraum. Sie werden automatisch in Modus \"{{mode2}}\" verschoben.",
+        "errorSaveCapacityDeleteSwitchDesc": "Die betroffenen Reservierungen werden in die \"Unbekannte Kategorie\" umgebucht. Bitte korrigiere die Schlafplatzzuweisung manuell.",
+        "errorSaveCapacityWrongSelectedDays": "Die ausgewählten Wochentage sind nicht korrekt.",
+        "errorSaveMultipleChangeTitle": "Es gibt Reservationen in verschiedenen Zeiträumen.",
+        "errorSaveMultipleChange": "Bist du sicher? Die in den bewirtschafteten Modus verschobenen Reservierungen werden in die \"unbekannte Kategorie\" umgebucht. Bitte korrigiere die Schlafplatzzuweisung manuell.\n\nDavon betroffen: \n{{number1}} Reservierungen in Modus \"{{mode1}}\" und {{number2}} Reservierungen in Modus \"{{mode2}}\" für diesen Zeitraum.\n\n",
+        "genericError": "Es ist ein allgemeiner Fehler aufgetreten.",
+        "closeButton": "Schließen",
+        "confirmDeleteButton": "Ja, löschen",
+        "confirmChangeButton": "Ja, ändern",
+        "deleteDeviationTitle": "Kapazitätsänderung löschen",
+        "deleteDeviationText": "Bist du sicher, dass du diese Kapazitätsänderung löschen willst? Dies kann nicht rückgängig gemacht werden.",
+        "confirmDeviationText": "Bist du sicher, dass du fortfahren willst?",
+        "errorSelectedDaysNotConsistent": "Ausgewählte Wochentage sind nicht konsistent."
+      },
+      "and": "und",
+      "recurringItem": "Wiederholungselement",
+      "removeRecurrentDeviationModalMsg": "Dieser Eintrag ist Teil einer Wiederholung. Was möchtest du entfernen?",
+      "editRecurrentDeviationModalMsg": "Dieser Eintrag ist Teil einer Wiederholung. Was möchtest du bearbeiten?",
+      "removeDeviationModalMsg": "Diese Löschung führt zu einer Überbuchung aufgrund von aktuellen Reservierungen. Bist du sicher, dass du löschen möchtest?",
+      "justOne": "Nur diesen Eintrag",
+      "entireSeries": "Die ganze Wiederholung",
+      "yesDelete": "Löschen",
+      "isRecurring": "Wiederholend"
+    },
+    "change-hut-capacity-modal": {
+      "title": "Wiederholung",
+      "removeRecurrenceButton": "Löschen",
+      "okButton": "OK",
+      "cancelButton": "Abbrechen",
+      "recurrenceDetailPre": "Wiederhole jede",
+      "recurrenceDetailPost": "Woche am",
+      "occurrences": "Ereignisse",
+      "endBy": "Endet am",
+      "endAfter": "Beenden nach",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum",
+      "rangeOfRecurrence": "Zeitraum der Wiederholung",
+      "weekDaysError": "Du musst mindestens einen Tag auswählen.",
+      "rangeOfRecurrenceError": "Der Wiederholungsbereich ist ungültig."
+    },
+    "hutRooms": {
+      "totalPlacesCount": "Total {{number}} Schlafplätze",
+      "addRoom": "Zimmer hinzufügen",
+      "room": "Zimmer",
+      "sleepingPlaces": "Anzahl Schlafplätze",
+      "pageWarningMessage": "Du kannst diese Seite nicht ändern, da die Schlafplatzzuweisung auf Zimmerebene nicht aktiviert ist. Bitte aktiviere sie zuerst im Tab „Schlafplätze“.",
+      "overbookingWarningTitle": "Anzahl Schlafplätze wird verringert.",
+      "roomWarningTitle": "Die Anzahl der Schlafplätze wird geändert.",
+      "overbookingWarningDescription": "Möchtest du die Anzahl Plätze wirklich ändern? Es gibt bereits Reservierungen in diesem Zeitraum. Diese Anpassung führt zu einer Überbuchung.",
+      "confirmOverbook": "Ändern",
+      "cancelOverbook": "Abbrechen",
+      "deleteRoomTitle": "Zimmer löschen",
+      "deleteRoomDescription": "Möchtest du das Zimmer <strong>{{roomName}}</strong> wirklich löschen? Dies kann nicht rückgängig gemacht werden.",
+      "confirmDeleteRoom": "Löschen",
+      "cancelDeleteRoom": "Abbrechen",
+      "cannotDeleteRoomTitle": "Zimmer kann nicht gelöscht werden.",
+      "cannotDeleteRoomDescription": "Zimmer <strong>{{roomName}}</strong> kann nicht gelöscht werden, solange es noch einer Kategorie oder dem unbewirtschafteten Betrieb zugeordnet ist.",
+      "cannotDeleteRoomButton": "Abbrechen"
+    },
+    "configureReservationListPage": {
+      "hutNotConfigured": "Die Hütte ist nicht vollständig konfiguriert. Bitte gehe alle Tabs durch und beachte die rot markierten Felder.",
+      "defineDetailArea": "Detailansicht der Reservierungsliste und Reihenfolge der Felder in der Tagesliste definieren.",
+      "saveButton": "Speichern",
+      "cancelButton": "Abbrechen",
+      "resetButton": "Auf Standard zurücksetzen",
+      "guestName": "Name",
+      "nightsNumber": "Anzahl der Nächte",
+      "dateOfStay": "Datum von - bis",
+      "eMail": "E-Mail",
+      "reservationDate": "Reservierungsdatum",
+      "phone": "Telefon",
+      "groupName": "Gruppe",
+      "status": "Status",
+      "reservationNumber": "Reservierungsnummer",
+      "comments": "Kommentar",
+      "guests": "Anzahl Gäste",
+      "guides": "Bergführer/innen",
+      "halfBoard": "Halbpension",
+      "vegetarians": "Vegi",
+      "veg": "Vegi",
+      "nights": "Nacht/Nächte",
+      "children": "davon Kinder",
+      "unknown": "Unbekannt",
+      "modal": {
+        "title": "Auf Standard zurücksetzen",
+        "detail": "Möchtest du die Konfiguration der Reservierungsliste auf die Standardeinstellungen zurücksetzen? Die aktuelle Konfigurationen geht verloren.",
+        "yesButton": "Ja",
+        "noButton": "Nein"
+      },
+      "halfPensionWithVeg": "{{halfPension}}, {{veg}} {{numberOfVegetarians}}",
+      "halfPensionWithoutVeg": "{{halfPension}}"
+    },
+    "invalidFormat": "Ungültiges Format",
+    "phoneFormatError": "Erlaubtes Format z.B.: +41791234567 oder 0791234567",
+    "overviewHutOccupancy": {
+      "acceptReservation": {
+        "title": "Reservierung bestätigen",
+        "description": "Wie möchtest du die Reservierung bestätigen?",
+        "acceptAndSend": "Bestätigungsanfrage per E-Mail an den Gast senden.",
+        "acceptAndSendInfo": "Der Gast wird eine E-Mail erhalten, dass er die Reservierung innerhalb von {{deadline}} Stunden bestätigen muss.",
+        "acceptDirectly": "Direkt bestätigen",
+        "acceptDirectlyInfo": "Die Reservierung wird direkt akzeptiert und der Gast erhält eine Bestätigungsemail.",
+        "attention": "Warnung",
+        "attentionInfo": "Wenn du die Reservierung direkt bestätigst, können keine Storno- oder No-Show Gebühren verrechnet werden, wenn der Gast die Reservierung storniert."
+      }
+    },
+    "manage-reservation-page": {
+      "resetFilter": "Filter zurücksetzen",
+      "newReservationButton": "Neue Reservierung",
+      "todayButton": "Heute",
+      "searchButton": "Suchen",
+      "searchFilterPlaceholder": "Name, Reservierungsnummer, Gruppe, E-Mail, Telefon, Kommentar..",
+      "title-occupancy": "Hüttenbelegungsübersicht",
+      "dateFromTo": "Datum von - bis",
+      "multiFilterPlaceholder": "Weitere Filter",
+      "occupancyTablecolumn": {
+        "selectDay": "Wähle ein Datumsbereich aus",
+        "NGuest": "Anzahl ankommender Gäste",
+        "totalGuest": "Gäste total",
+        "HalfPension": "Halbpension",
+        "Vegetarian": "Vegi",
+        "WaitingList": "Warteliste",
+        "Children": "Kinder",
+        "MountainGuides": "Bergführer/in",
+        "guestIn": "Gäste in {{categoryShortName}}:"
+      },
+      "more-filters": {
+        "hasComment": "Kommentar",
+        "isProfessional": "Profi",
+        "hasMountainGuides": "Bergführer/innen",
+        "isDoubleBooking": "Doppelbuchung",
+        "hasUnknownCategory": "Unbekannte Kategorie",
+        "hasNoBedsAssigned": "Fehlende Schlafplatzzuweisung"
+      },
+      "cancelReservationButton": "Stornieren",
+      "sendMessageButton": "Nachricht senden",
+      "exportListButton": "Export",
+      "actions": {
+        "editButton": "Bearbeiten",
+        "cancelButton": "Stornieren",
+        "acceptReservationButton": "Reservierung bestätigen",
+        "sendMessageButton": "Nachricht senden",
+        "move2waitinlistButton": "Auf Warteliste verschieben",
+        "checkInButton": "Check-in",
+        "undoCheckInButton": "Check-in rückgängig machen",
+        "no-show": "No-Show",
+        "allocateSleepingPlacesButton": "Schlafplätze zuweisen"
+      },
+      "columns": {
+        "Status": "Status",
+        "Arrival": "Ankunft",
+        "Guest": "Name",
+        "Group": "Gruppe",
+        "Nights": "Nächte",
+        "Guests": "Gäste",
+        "HalfPension": "Halbpension",
+        "Hints": "Hinweise",
+        "Res-Nr.": "Res.-Nr.",
+        "freePlaces": "Freie Plätze"
+      },
+      "emptyPanel": "Es wurden keine weiteren Felder definiert.",
+      "searchMessage": "<strong>{{term_researched}}</strong> wurde nicht im gewünschten Zeitraum {{date_from}} - {{date_to}} gefunden.<br>Wie möchtest du weiter vorgehen?",
+      "searchPastButton": "Suche {{date_to}} - 1 Jahr",
+      "searchFutureButton": "Suche {{date_from}} + 1 Jahr",
+      "messages": {
+        "hut-day-closed": "Geschloßen",
+        "hut-day-unserviced": "Unbewirtschaftet",
+        "hut-day-serviced": "Bewirtschaftet",
+        "guestIn": "Gäste in {{categoryShortName}}",
+        "freePlacesIn": "Freie Plätze: {{free_places}}"
+      },
+      "hutNotConfiguredPopup": {
+        "title": "Unvollständige Konfiguration",
+        "description": "Die Hütte ist nicht vollständig konfiguriert. Bitte vervollständige die Konfiguration, um fortzufahren."
+      },
+      "guestToolTipWithChildren": "{{numberOfGuests}} Gäste (davon Kinder: {{numberOfChildren}})",
+      "guestToolTipNoChildren": "{{numberOfGuests}} Gäste",
+      "activeFilters": "Aktive Filter"
+    },
+    "reservation-table": {
+      "modal": {
+        "export-limit-exceed-error": {
+          "title": "Warnung: Export kann nicht durchgeführt werden",
+          "message": "Du kannst nicht mehr als {{max_num}} Reservierungen exportieren."
+        },
+        "export-no-result-error": {
+          "title": "Warnung: Export kann nicht durchgeführt werden.",
+          "message": "Im ausgewählten Datumsbereich gibt es keine Daten zu exportieren. Ändere den Datumsbereich und versuche es noch mal."
+        },
+        "export-generic-error": {
+          "title": "Warnung: Export kann nicht durchgeführt werden.",
+          "message": "Es gab einen Fehler beim Export. Bitte melde dich beim Support."
+        },
+        "export-confirmation": {
+          "title": "Tagesliste exportieren",
+          "message": "Dieser Vorgang kann einige Zeit dauern. Möchtest du fortfahren?"
+        },
+        "reservations": "Reservierungen"
+      },
+      "exporting-notification-message": "Excel-Datei wird erstellt."
+    },
+    "send-message-modal": {
+      "title": "Nachricht senden",
+      "to": "An",
+      "message": "Nachricht",
+      "info-message": "Textvorschau anzeigen"
+    },
+    "move-to-waiting-list-modal": {
+      "title": "Reservierung auf Warteliste verschieben",
+      "message": "Bist du sicher, dass du diese bereits bestätigte Reservierung auf die Warteliste verschieben möchtest? Der Gast wird per E-Mail benachrichtigt.",
+      "yes": "Ja",
+      "no": "Nein"
+    },
+    "excelDocument": {
+      "guestName": "Vorname",
+      "guestLastName": "Nachname",
+      "dateFrom": "Von",
+      "dateTo": "Bis",
+      "nightsNumber": "Nächte",
+      "guestsNumber": "Gäste",
+      "childrenNumber": "Kinder",
+      "reservations": "Reservierungen",
+      "documentTitle": "Reservierungen von %s bis %s",
+      "comments": "Kommentar",
+      "profi": "Profi",
+      "guides": "Bergführer/innen",
+      "unknownCategories": "Unbekannte Kategorie",
+      "doubleBooking": "Doppelbuchung",
+      "noBedsAssigned": "Keine Schlafplätze zugewiesen",
+      "all": "Alle",
+      "unconfirmed": "Unbestätigt",
+      "confirmed": "Bestätigt",
+      "checked_in": "Checked-in",
+      "no_show": "No-Show",
+      "no_show_charged": "No-Show bestätigt",
+      "on_waiting_list": "Auf Warteliste",
+      "discarded": "Storniert"
+    },
+    "sessionLogoutModal": {
+      "title": "Du wirst bald ausgeloggt",
+      "description": "Diese Sitzung scheint nicht aktiv zu sein.<br>Du wirst in <strong>{{seconds}} Sekunden</strong> ausgeloggt.",
+      "keepAliveButton": "Eingeloggt bleiben"
+    },
+    "creditCard": {
+      "tenant": "Mandant",
+      "cardType": "Kartentyp",
+      "registrationDate": "Registrierungsdatum",
+      "expiryDate": "Ablaufdatum",
+      "editCreditCard": "Bearbeiten",
+      "cancelCreditCard": "Löschen",
+      "emptyWarning": "Du hast keine Kreditkarte hinterlegt. Deine Kreditkarte muss bei dieser Reservierung hinterlegt werden und kann auch bei zukünftigen Reservierungen benutzt werden.",
+      "modals": {
+        "deleteCardTitle": "Kreditkarte entfernen",
+        "deleteCardText": "Möchtest du die Kreditkarte wirklich entfernen?",
+        "deleteCardConfirmButton": "Entfernen",
+        "deleteCardCancelButton": "Abbrechen",
+        "deleteCardFailedTitle": "Die Kreditkarte kann nicht entfernt werden",
+        "deleteCardFailedText": "Du hast mindestens eine aktuelle Reservierung. Eine Entfernung der Kreditkarte ist deshalb nicht möglich.<br>Bitte beachte, dass die Kreditkarte erst nach 60 Tagen nach dem Anreisetag entfernt werden kann.",
+        "deleteCardFailedCloseButton": "Schließen"
+      }
+    },
+    "credit-card-checkout": {
+      "title": "Ups!",
+      "description": "Etwas ist schiefgelaufen.",
+      "redirectBtn": "Zurück zur vorherigen Seite"
+    },
+    "otpModal": {
+      "nextButton": "Weiter",
+      "confirmButton": "OK",
+      "cancelButton": "Abbrechen",
+      "passcodePlaceholder": "One-Time Passwort aus der Authenticator App",
+      "passcodeNotValidError": "Passwort ist nicht gültig.",
+      "activationFirstStep": {
+        "title": "Aktiviere die Zwei-Faktor-Authentifizierung.",
+        "description": "<ol><li>Lade eine Authenticator App auf dein Telefon, wenn du noch keines installiert hast</li><li>Öffne die Authenticator App und füge ein Konto hinzu</li><li>Scanne den QR-Code oder geben den Schlüssel darunter ein</li><li>Klicke auf weiter wenn die App das Konto erstellt hat</li></ol>"
+      },
+      "activationSecondStep": {
+        "title": "Aktiviere die Zwei-Faktor-Authentifizierung.",
+        "description": "Bitte gib den Code ein, der in deiner Authenticator-App angezeigt wird, um die Aktivierung der Zwei-Faktor-Authentifizierung abzuschliessen."
+      },
+      "deactivationStep": {
+        "title": "Zwei-Faktor-Authentifizierung deaktivieren",
+        "description": "Möchtest du die Zwei-Faktor-Authentifizierung deaktivieren?",
+        "confirmButton": "Deaktivieren"
+      },
+      "verificationStep": {
+        "title": "Zwei-Faktor-Authentifizierung",
+        "description": "Bitte gib den Code ein, der in deiner Authenticator-App angezeigt wird, um die Aktivierung der Zwei-Faktor-Authentifizierung abzuschliessen."
+      },
+      "messages": {
+        "activationSuccess": "Zwei-Faktor-Authentifizierung wurde aktiviert.",
+        "activationError": "Die Zwei-Faktor-Authentifizierung konnte nicht aktiviert werden. Bitte versuche es erneut.",
+        "deactivationSuccess": "Zwei-Faktor-Authentifizierung wurde deaktiviert.",
+        "deactivationError": "Die Zwei-Faktor-Authentifizierung konnte nicht deaktiviert werden. Bitte versuche es erneut.",
+        "verificationSuccess": "Zwei-Faktor-Authentifizierung hat funktioniert.",
+        "verificationError": "Zwei-Faktor-Authentifizierung fehlgeschlagen. Bitte versuche es erneut."
+      }
+    },
+    "editReservationPage": {
+      "bookingSummary": "{{guestData.firstName}} {{guestData.lastName}}, {{arrivalDate}} - {{departureDate}}, {{numberOfNights}} Nacht/Nächte, {{numberOfPeople}} Gast/Gäste",
+      "reservationTab": "Reservierung",
+      "reservation": {
+        "generalSection": {
+          "title": "Allgemein",
+          "reservationNumber": "Nummer",
+          "reservationDate": "Datum der Reservierung",
+          "reservationStatus": "Status",
+          "reservationType": "Reservierungstyp",
+          "defaultReservationType": "Expressreservierung",
+          "creditCard": "Kreditkarte",
+          "creditCardDisplayTemplate": "{{type}}<br>{{number}}<br>gültig bis {{expiration}}<br>registriert auf {{registration}}",
+          "chargedFees": "Erhobene Gebühren",
+          "pendingFees": "Offene Gebühren",
+          "calculatedFees": "Berechnete Gebühren",
+          "buttonCharge": "Gebühren verrechnen"
+        },
+        "staySection": {
+          "title": "Aufenthalt",
+          "dates": "Datum von - bis",
+          "nightsNumber": "Anzahl der Nächte",
+          "groupName": "Gruppe",
+          "datesError": "Bitte verwende das folgende Datumsformat: TT.MM.JJJJ - TT.MM.JJJJ.",
+          "sameDatesError": "Ankunfts- und Abreisedatum können nicht identisch sein."
+        },
+        "categoryAssignSection": {
+          "title": "Gäste zuordnen",
+          "newReservationWarning": "Bitte wähle zuerst Datum von - bis aus, um die entsprechenden Kategorien zu sehen.",
+          "flexibleAllocation": "Flexible Schlafplatzzuweisung",
+          "flexibleAllocationTooltip": "Mit dieser Option darfst du den Gast in eine andere Kategorie buchen.",
+          "totalAssignedGuests": "Zugewiesene Gäste insgesamt",
+          "childrenNumber": "Kinder",
+          "mountainGuidesNumber": "Bergführer/innen",
+          "halfPension": "Halbpension",
+          "vegetariansNumber": "Vegi",
+          "mutationDisabledNavigationFirst": "Die Zuordnung kann hier nicht mehr geändert werden. Bitte gehe zu \"",
+          "mutationDisabledNavigationLink": "Details & Historie",
+          "mutationDisabledNavigationLast": "\" um die Anzahl der Gäste zu reduzieren.",
+          "overbookInputError": "{{availablePlaces}} frei von {{totalPlaces}} Plätzen",
+          "maxPeopleError": "Der Wert darf nicht grösser als die Anzahl der Gäste sein.",
+          "unknownWarning": "Bitte weise die {{people}} Gäste den gewünschten Kategorien zu."
+        },
+        "contactSection": {
+          "title": "Kontakt",
+          "firstName": "Name",
+          "lastName": "Nachname",
+          "phone": "Telefon",
+          "phonePlaceholder": "Z.B.: +41 555 555 555 oder 0041 555 555 555",
+          "email": "E-Mail",
+          "address1": "Adresszeile 1",
+          "address2": "Adresszeile 2",
+          "zipCode": "PLZ",
+          "location": "Ort",
+          "language": "Sprache",
+          "errors": {
+            "emailFormatError": "Ungültiges Format",
+            "emailAlreadyExistError": "Die eingegebene E-Mail-Adresse existiert bereits.",
+            "phoneFormatError": "Erlaubtes Format z.B.: +41791234567 oder 0041 791234567"
+          }
+        },
+        "freeFieldsSection": {
+          "title": "Zusatzfelder",
+          "comments": "Kommentar"
+        },
+        "internalFreeFieldsSection": {
+          "title": "Zusatzfelder intern",
+          "internalComments": "Kommentar intern"
+        },
+        "buttons": {
+          "accept": "Bestätigen",
+          "acceptDirectly": "Direkt bestätigen",
+          "save": "Speichern",
+          "saveAndSendMessage": "Speichern und Nachricht senden",
+          "createWithConfirmationRequest": "Mit Bestätigungsanfrage senden",
+          "createDirectly": "Absenden",
+          "cancel": "Abbrechen",
+          "checkIn": "Check-in",
+          "undoCheckIn": "Check-in rückgängig machen",
+          "noShow": "No-Show",
+          "undoNoShow": "No-Show rückgängig machen",
+          "moveToWaitingList": "Auf Warteliste verschieben",
+          "undoMoveToWaitingList": "Verschiebung auf Warteliste rückgängig machen",
+          "cancelReservation": "Stornieren",
+          "sendMessage": "Nachricht senden"
+        },
+        "editOverbookingModal": {
+          "title": "Achtung: Überbuchung!",
+          "description": "Bei dieser Konfiguration gibt es nicht genügend freie Plätze. Wie willst du vorgehen?",
+          "overbookOption": {
+            "label": "Überbuchung",
+            "info": "Die Hütte wird überbucht. Der Gast erhält eine E-Mail, um darüber informiert zu werden, dass seine Reservierung geändert wurde."
+          },
+          "moveToWaitingListOption": {
+            "label": "Auf die Warteliste setzen",
+            "info": "Die Reservierung wird auf die Warteliste gesetzt. Der Gast erhält eine E-Mail mit der Info, dass seine Reservierung auf die Warteliste gesetzt wurde."
+          },
+          "confirm": "OK"
+        },
+        "createDirectlyModal": {
+          "title": "Expressreservierung",
+          "description": "Die Expressreservierung wird erstellt und der Gast erhält eine Benachrichtigung (falls die erfasste E-Mail-Adresse <strong>{{email}}</strong> stimmt), dass seine Reservierung durch die Hüttenwirtsleute direkt bestätigt wurde.<br><strong>Achtung:</strong> Wenn du die Reservierung mit dieser Funktion erstellst, können keine No-Show- und Stornogebühren erhoben werden, weil die Reservierung nicht mit einem Benutzerkonto verknüpft ist.",
+          "confirm": "Erstellen"
+        },
+        "createOverbookingModal": {
+          "title": "Achtung: Überbuchung!",
+          "description": "Die Hütte wird überbucht und die Reservierung wird im Status \"Übermittelt\" gespeichert. Der Gast erhält eine E-Mail zur Bestätigung der Reservierung.",
+          "confirm": "Erstellen"
+        },
+        "createOverbookingWithOptionsModal": {
+          "title": "Achtung: Überbuchung!",
+          "description": "Bei dieser Konfiguration gibt es nicht genügend freie Plätze. Wie willst du vorgehen?",
+          "overbookOption": {
+            "label": "Überbuchung",
+            "info": "Die Hütte wird überbucht. Der Gast erhält eine E-Mail mit der Info,  dass seine Reservierung geändert wurde."
+          },
+          "moveToWaitingListOption": {
+            "label": "Auf die Warteliste setzen",
+            "info": "Die Reservierung wird auf die Warteliste gesetzt. Der Gast erhält eine E-Mail mit der Info, dass seine Reservierung auf die Warteliste gesetzt wurde."
+          },
+          "confirm": "Erstellen"
+        },
+        "categoryModal": {
+          "title": "Gäste einer anderen Kategorie zuweisen.",
+          "description": "Einige Gäste werden in eine andere Kategorie zugewiesen. Möchtest du fortfahren?",
+          "category-detail": "Gäste in {{categoryName}} ändern sich von {{previusGuests}} zu {{actualGuests}}"
+        },
+        "modeChangeToUnservicedModal": {
+          "title": "Modus ändern",
+          "description": "Diese Reservierung wurde für den bewirtschafteten Modus gebucht. Bist du sicher, dass du sie in den unbewirtschafteten Modus migrieren willst?",
+          "descritionSave": "Achtung: Wenn du die Reservation direkt bestätigst, dann können keine Storno- oder No-Show Gebühren verrechnet werden, wenn der Gast die Reservierung storniert."
+        },
+        "modeChangeToServicedModal": {
+          "title": "Modus ändern",
+          "description": "Diese Reservierung wurde für den unbewirtschafteten Modus gebucht. Bist du sicher, dass du sie in den bewirtschafteten Modus migrieren willst? Die betroffenen Reservierungen werden in die Kategorie 'unbekannt' umgebucht. Bitte korrigiere die Schlafplatzzuweisung manuell.",
+          "descritionSave": "Achtung: Wenn du die Reservierung direkt bestätigst, dann können keine No-Show Gebühren verrechnet werden, wenn der Gast die Reservierung storniert."
+        },
+        "discardCreateModal": {
+          "title": "Abbrechen",
+          "description": "Möchtest du diesen Reservierungsvorgang abbrechen?"
+        },
+        "discardEditModal": {
+          "title": "Abbrechen",
+          "description": "Möchtest du die Änderungen verwerfen?"
+        },
+        "unknownsToReassignModal": {
+          "title": "Änderungsmodus",
+          "description": "Du hast {{peopleAssigned}} statt {{peopleToAssign}} Gäste zugewiesen. {{peopleRemained}} Gäste werden von der Reservierung storniert. Bist du sicher, dass du fortfahren möchtest? Achtung: Wenn du die Reservierung direkt bestätigst, können die Storno- und No-Show-Gebühren nicht verrechnet werden, da keine Kreditkarte hinterlegt ist.",
+          "descriptionSendMessage": "Du hast {{peopleAssigned}} statt {{peopleToAssign}} Gäste zugewiesen. {{peopleRemained}} Gäste werden von der Reservierung storniert. Bist du sicher, dass du fortfahren möchtest? Der Gast erhält eine E-Mail mit der Info, dass seine Reservierung geändert wurde.",
+          "confirm": "Ändern"
+        },
+        "createWithConfirmationSuccessMessage": "Die Express-Reservierung wurde erstellt und Reservierungsbestätigung per E-Mail verschickt.",
+        "createDirectlySuccessMessage": "Die Express-Reservierung wurde erstellt."
+      },
+      "detailsHistoryTab": "Details & Historie",
+      "paymentExecuted": "Die Gebühren wurden verrechnet.",
+      "detailsHistory": {
+        "warningMessage": "Du hast einige Änderungen vorgenommen, die die Bettenzuweisung beeinflussen könnten. Bitte überprüfe diese!",
+        "redirectButton": "Schlafplatzzuweisung",
+        "detailsTitle": "Details zum Aufenthalt",
+        "detailsInfo": "Verwende die unten stehenden Felder, um die Anzahl der Gäste zu reduzieren, z.B. wenn Gäste nicht erschienen sind, früher abreisen müssen, etc. Auf diese Weise kannst du die entsprechenden Gebühren abrechnen, Schlafplätze werden wieder buchbar und du hast einen genaueren Überblick über die Mahlzeiten pro Tag.",
+        "categoryColumn": "Kategorie",
+        "feesColumn": "Gebühren",
+        "guestsRow": "Gäste in",
+        "childrenRow": "Davon Kinder",
+        "vegetarianRow": "Davon Vegi",
+        "total": "Total",
+        "saveAndChargeFees": "Speichern und Gebühren verrechnen",
+        "historyTitle": "Historie",
+        "historyTable": {
+          "modificationDate": "Datum/Zeit",
+          "sourceChange": "Quelle",
+          "user": "Benutzer/in",
+          "eventType": "Ereignistyp",
+          "originalValue": "Alt",
+          "newValue": "Neu",
+          "eventTypes": {
+            "statusChange": "Statusänderung",
+            "email": "E-Mail",
+            "valueChange": "Wertänderung",
+            "ePayment": "Belastung",
+            "detailsChange": "Wertänderung",
+            "periodChange": "Änderungszeitraum"
+          },
+          "description": "Beschreibung",
+          "descriptions": {
+            "statusChange_statusChangeMultipleCancellation": "Statusänderung von <strong>{{old_status}}</strong> zu <strong>{{new_status}}</strong> auf Grund mehrfacher Stornierung.",
+            "statusChange_statusChange": "Statusänderung von <strong>{{old_status}}</strong> zu <strong>{{new_status}}</strong>.",
+            "statusChange_statusChangeLinkClicked": "Statusänderung von <strong>{{old_status}}</strong> zu <strong>{{new_status}}</strong>, da der Link in der erhaltenen E-Mail angeklickt wurde.",
+            "statusChange_statusChangeLinkExpired": "Statusänderung von <strong>{{old_status}}</strong> zu <strong>{{new_status}}</strong>, da der Link in der erhaltenen E-Mail abgelaufen ist.",
+            "email_reservationEmail": "<strong>{{email_type}}</strong> wurde an <strong>{{email}}</strong> gesendet.",
+            "email_ccEmail": "<strong>{{email_type}}</strong> wurde als CC an <strong>{{email}}</strong> gesendet.",
+            "periodChange_periodChange": "Betriebsmodusänderung von <strong>{{original_phase}}</strong> zu <strong>{{new_phase}}</strong>.",
+            "statusChange_OOS_Not_implemented": "Statusänderung von <strong>{{old_status}}</strong> zum Status Storniert aufgrund der Mehrfachstornierung.",
+            "statusChange_statusChangeStaff": "Statusänderung <strong>{{old_status}}</strong> zu <strong>{{new_status}}</strong>.",
+            "email_multipleGuestEmail": "E-Mail wurde an <strong>{{email}}</strong> aufgrund von Mehrfachauswahl gesendet.",
+            "email_singleGuestEmail": "E-Mail wurde an <strong>{{email}}</strong> gesendet.",
+            "valueChange_valueChanges": "<strong>{{detail_changed}}</strong>: Alt <strong>{{original_value}}</strong> Neu: <strong>{{new_value}}</strong>",
+            "detailChange_categoryDetailChange": "Gäste in {{detail_changed}} wurden von <strong>{{original_value}}</strong> zu <strong>{{new_value}}</strong> geändert für {{night}}.",
+            "detailChange_detailChange": "{{detail_changed}} geändert von <strong>{{original_value}}</strong> zu <strong>{{new_value}}</strong> für  {{night}}.",
+            "ePaymentEvent_onlineFeeChargedError": "{{type_of_fee}} konnte aufgrund eines Fehlers nicht verrechnet werden:{{error_code}}. Die Ausstehende Gebühren <strong>{{currency}} {{amount}}</strong> wurden gespeichert. Transaction ID={{transaction_id}}",
+            "ePaymentEvent_offlineFeeCharged": "{{type_of_fee}} Gebühren <strong>{{currency}} {{amount}}</strong> wurden manuell verrechnet. Kommentar: {{comment}}",
+            "ePaymentEvent_onlineFeeChargedByGuest": "{{type_of_fee}} Gebühren <strong>{{currency}} {{amount}}</strong> wurden der Kreditkarte {{card_number}} mit Ablaufdatum {{expiry_date}} belastet. Transaction ID={{transaction_id}}",
+            "ePaymentEvent_onlineFeeChargedByAdmin": "{{type_of_fee}} Gebühren <strong>{{currency}} {{amount}}</strong> wurden der Kreditkarte {{card_number}} mit Ablaufdatum {{expiry_date}} belastet. Transaction ID={{transaction_id}}. Kommentar: {{comment}}",
+            "ePaymentEvent_creditCardAddedSuccess": "Kreditkarte {{card_number}} mit Ablaufdatum {{expiry_date}} wurde gespeichert.",
+            "ePaymentEvent_creditCardAddedFailure": "Kreditkarte {{card_number}} mit Ablaufdatum {{expiry_date}} konnte nicht gespeichert werden aufgrund von Validierungsproblemen.",
+            "ePaymentEvent_creditCardEditedSuccess": "Kreditkartenänderung, Alt {{original_card_number}} {{original_expiry_date}}, Neu <strong>{{card_number}} {{expiry_date}}</strong>.",
+            "ePaymentEvent_creditCardEditedFailure": "Kreditkartenänderung, {{card_number}} {{expiry_date}} wurde aufgrund von Validierungsproblemen nicht gespeichert.",
+            "categoryLabel": "Kategorie"
+          },
+          "email-templates": {
+            "INVITATION_TEMPLATE": "Einladung",
+            "FIRST_LOGIN_TEMPLATE": "Erster Login",
+            "RESET_PASSWORD_TEMPLATE": "Passwort zurücksetzen",
+            "NOTIFICATION_TEMPLATE": "Benachrichtigung",
+            "PASSWORD_RECOVERED_TEMPLATE": "Passwort-Wiederherstellung",
+            "CHANGE_MAIL_TEMPLATE": "Änderung E-Mail-Adresse",
+            "FIRST_RESERVATION_TEMPLATE": "Reservierungsanfrage",
+            "WAITING_LIST_RESERVATION_TEMPLATE": "Wartelistebestätigung",
+            "WAITING_LIST_RESERVATION_ADMISSION_TEMPLATE": "Reservierungsanfrage (Übernahme von Warteliste)",
+            "FIRST_RESERVATION_CANCELLATION_TEMPLATE": "Stornierungsbestätigung (Link nicht angeklickt)",
+            "CONFIRM_RESERVATION_TEMPLATE": "Reservierungsbestätigung",
+            "HUT_SIGNATURE_TEMPLATE": "Hüttensignatur",
+            "EMAIL_TO_GUEST_TEMPLATE": "Nachricht an Benutzer/in",
+            "EDIT_RESERVATION_TEMPLATE": "Bestätigung der Änderungen",
+            "EXPRESS_RESERVATION_TEMPLATE": "Reservierungsanfrage (Express)",
+            "EXPRESS_CANCELLATION_TEMPLATE": "Stornierungsbestätigung (Express: Link nicht angeklickt)",
+            "RESERVATION_CANCELLATION_TEMPLATE": "Stornierungsbestätigung"
+          }
+        }
+      },
+      "bedAssignmentTab": "Schlafplätze"
+    },
+    "bedAssignment": {
+      "columnsOfTheTable": {
+        "category_room": "Kategorie / Zimmer",
+        "categoryColumn": "{{week_day}} {{reservation_date}}"
+      },
+      "categoryRow": {
+        "categoryRow": "{{category_name}} {{category_shortName}} ({{nr_sleeping_places}})",
+        "categoryGuests": "{{guests_assigned_to_bed}} von {{guest_to_assign}}",
+        "free_assigned": "Frei {{free_sleeping_places}}, zugewiesen {{sleeping_places_booked}}"
+      },
+      "roomRow": {
+        "roomRow": "{{room_name}} ({{number_of_beds}})",
+        "free": "Frei {{free_sleeping_places}}"
+      },
+      "breadcrumb": {
+        "category": "{{category_shortname}}: {{nr_guests_cat_assigned}}",
+        "bedAssignmentIncomplete": "Schlafplatzzuweisung unvollständig: {{nr_guests_assigned}} von {{nr_gests_toAssign}} Gäste zugewiesen",
+        "bedAssignmentComplete": "Schlafplatzzuweisung vollständig"
+      },
+      "actions": {
+        "assignButton": "Zuweisen",
+        "assignAllButton": "Alle zuweisen",
+        "overbookButton": "Überbuchen"
+      },
+      "assignAllErrorModal": {
+        "title": "Zuweisung nicht möglich",
+        "description": "Die automatische Zuweisung ist nicht möglich, da für mind. eine Nacht der Reservierung Schlafplätze der gewünschten Kategorie nicht zur Verfügung stehen."
+      },
+      "singleAssignErrorModal": {
+        "title": "Zuweisung nicht möglich",
+        "description": "Die Zuweisung ist nicht möglich aufgrund eines Fehlers oder weil die Schlafplatzzuweisung abgeschlossen ist. Bitte überprüfen und erneut versuchen."
+      },
+      "roomAssignmetTab": {
+        "title": "Zuweisung nicht möglich",
+        "description": "Die Zuweisung konnte nicht abgeschlossen werden, weil mind. ein Gast in der Kategorie 'Unbekannt' ist. Bitte prüfen und erneut versuchen.",
+        "genericError": "Zuweisung nicht möglich",
+        "unknownCategoryError": "Die Zuweisung konnte nicht abgeschlossen werden, weil mind. ein Gast in der Kategorie 'Unbekannt' ist. Bitte prüfen und erneut versuchen.",
+        "no_rooms_linked_2_category": "Für diese Kategorie sind keine Zimmer definiert."
+      },
+      "assignedCompletedModal": {
+        "title": "Schlafplatzzuweisung abgeschlossen",
+        "description": "Alle Plätze bereits zugeordnet"
+      }
+    },
+    "reservationSummary": {
+      "overnightStay": {
+        "title": "Übernachtung",
+        "dateFromTo": "Datum von - bis",
+        "noOfPeople": "Anzahl Personen",
+        "spacesInRoomCategory": "Schlafplätze in {{roomCategory}}",
+        "numberOfChildren": "Davon Kinder",
+        "mountainGuide": "Davon Bergführer/innen",
+        "halfBoard": "Halbpension",
+        "vegetarian": "Vegi",
+        "priceList": "Preisliste",
+        "groupName": "Gruppe",
+        "comments": "Kommentar",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "personalData": {
+        "title": "Persönliche Daten",
+        "firstName": "Vorname",
+        "name": "Nachname",
+        "address1": "Adresse 1",
+        "address2": "Adresse 2",
+        "zipCode": "PLZ",
+        "location": "Ort",
+        "country": "Land",
+        "mobileNo": "Handy",
+        "email": "E-Mail"
+      },
+      "reservationStatus": {
+        "status": "Status",
+        "confirmed": "Bestätigt",
+        "waitingList": "Warteliste",
+        "cancelled": "Storniert",
+        "unconfirmed": "Unbestätigt"
+      },
+      "buttonEditReservation": "Bearbeiten",
+      "buttonNewReservation": "Neu",
+      "buttonCancelReservation": "Stornieren"
+    },
+    "reservationHistory": {
+      "allow_any_category": "Flexible Schlafplatzzuweisung",
+      "meal_included": "Halbpension",
+      "arrival_date": "Ankunftsdatum",
+      "departure_date": "Abreisedatum",
+      "comments": "Kommentar",
+      "group_name": "Gruppe",
+      "language": "Sprache",
+      "number_of_children": "Davon Kinder",
+      "number_of_mountain_guides": "Davon Bergführer/innen",
+      "number_of_vegetarians": "Davon Vegi",
+      "guest_address_l1": "Adresse 1",
+      "guest_address_l2": "Adresse 2",
+      "guest_cell_phone": "Handy",
+      "guest_country_code": "Land",
+      "guest_city": "Ort",
+      "guest_company": "Firmenname",
+      "guest_first_name": "Vorname",
+      "guest_last_name": "Nachname",
+      "guest_phone": "Telefon",
+      "guest_zip_code": "PLZ",
+      "cancellation": "Storno",
+      "noShow": "No-Show",
+      "partialNoShow": "Teil No-Show",
+      "partialCancellation": "Partielle Stornierung"
+    },
+    "cancelReservationGuestModal": {
+      "title": "Reservierung stornieren",
+      "description": "Bist du sicher, dass du diese Reservierung stornieren möchtest?",
+      "description_fees": "Wenn du diese Reservierung stornierst,  fallen Gebühren von <strong>{{fee_currency}} {{fee_amount}}</strong> an.",
+      "description_charged": "Dieser Betrag wird von der Kreditkarte abgebucht.",
+      "gtcLabel": "AGB gelesen und akzeptiert*:"
+    },
+    "cancelReservationModal": {
+      "titleCancelReservation": "Reservierung {{reservation_number}} stornieren",
+      "titleNoShow": "No-Show Gebühren für Reservierung {{reservation_number}}",
+      "guestName": "{{first_name}} {{last_name}}",
+      "reservationDetail": "{{nr_guest}} Gast/Gäste, {{arrival_date}} - {{departure_date}}, {{nr_nights}} Nächt/e",
+      "fees": "Gebühren",
+      "comment": "Kommentar",
+      "ePaymentMessage": "Die Gebühren werden von Kreditkarte abgebucht.",
+      "noEPaymentMessage": "Die Gebühren werden manuell verrechnet.",
+      "buttonConfirm": "Storno",
+      "buttonNoShow": "No-Show",
+      "maxAmountError": "Man darf nicht mehr als {{currency}} {{maxAmount}} berechnen.",
+      "snackbar": {
+        "reservationCancelled": "Reservierung storniert",
+        "reservationNoShow": "Reservierung als No-Show markiert"
+      },
+      "paymentErrorModal": {
+        "title": "Fehler",
+        "description": "Die Belastung ist nicht möglich, da der folgende Fehler aufgetreten ist: {{error}}.<br>Die ausstehenden Gebühren werden für eine spätere Belastung gespeichert."
+      },
+      "paymentErrorsModals": {
+        "title": "Fehler beim Hinterlegen der Kreditkarte",
+        "paymentFailed": "Das Hinterlegen der Kreditkarte ist aufgrund des Fehlers {{error}} nicht möglich. Deine Reservierung wird storniert und die Gebühren werden als ausstehend gespeichert. Bitte wende dich zuerst an die kreditkartenausgebende Stelle (z.B. Bank).",
+        "cardNotValid": "Deine Kreditkarte ist nicht mehr gültig. Bitte aktualisiere die Kreditkarte in deinem Benutzerkonto, damit die Reservierung storniert werden kann."
+      }
+    },
+    "cancelMultipleReservationModal": {
+      "title": "Mehrfachstornierung",
+      "description": "<strong>Bist du sicher, dass du die {{count}} ausgewählten Reservierungen stornieren möchtest?</strong><br>Dabei werden keine Stornierungsgebühren verrechnet.",
+      "commentPlaceholder": "Kommentar",
+      "buttonConfirm": "Stornieren",
+      "successMessage": "Reservierungen storniert"
+    },
+    "chargeFeesModal": {
+      "titleNoShow": "No-Show Gebühren verrechnen",
+      "titleCancellation": "Storno Gebühren verrechnen",
+      "titlePartialNoShow": "Offene Gebühren verrechnen",
+      "guestName": "{{first_name}} {{last_name}}",
+      "reservationDetail": "{{nr_guest}} Gast/Gäste, {{arrival_date}} - {{departure_date}}, {{nr_nights}} Nacht/Nächte",
+      "fees": "Gebühren",
+      "comment": "Kommentar erscheint in der Reservierungshistorie.",
+      "noEPaymentMessage": "Bestätige, dass die Gebühren ausserhalb des Systems verrechnet wurden.",
+      "buttonConfirmFees": "Manuell belasten",
+      "buttonRetryCard": "Kreditkarte wieder belasten",
+      "buttonUseCreditCard": "Kreditkarte verwenden",
+      "maxAmountError": "Es darf nicht mehr als {{currency}} {{maxAmount}} verrechnet werden.",
+      "pending": "Offene Gebühren",
+      "pendingFees": "Offene Gebühren",
+      "snackbar": {
+        "feesCharged": "Die Gebühren wurden verrechnet.",
+        "amountPartialFeesResetted": "Die Gebühren wurden neu berechnet."
+      },
+      "ePaymentMessage": "Die Gebühren werden von Kreditkarte abgebucht."
+    },
+    "professionalStaffTab": {
+      "inviteStaffButton": "Personal einladen",
+      "card": {
+        "name": "Nachname",
+        "firstName": "Vorname",
+        "mobile": "Handy",
+        "email": "E-Mail",
+        "noEntries": "Kein Personal"
+      }
+    },
+    "manageWebServiceTab": {
+      "newWebServiceAccessButton": "Neuer API-Zugriff",
+      "table": {
+        "accessibility": "API-Zugriffe verwalten",
+        "consumerName": "Partner",
+        "modifiedBy": "Geändert von",
+        "modifiedOn": "Geändert am",
+        "description": "Beschreibung",
+        "noEntries": "Keine Einträge gefunden.",
+        "serviceList": {
+          "ti_huts_availability": "hutsAvailability",
+          "ti_huts_details": "hutsDetails",
+          "td_gethutdata_for_create": "hutDataToCreate",
+          "td_gethutdata_for_edit": "hutDataToEdit",
+          "td_create_reservation": "createReservation",
+          "td_edit_reservation": "editReservation",
+          "td_delete_reservation": "cancelReservation",
+          "td_huts_availability": "hutsAvailability",
+          "td_hut_reservations_list": "hutReservationsList"
+        },
+        "actions": {
+          "title": "API-Zugriffe verwalten",
+          "edit": "Ändern",
+          "delete": "Löschen"
+        }
+      },
+      "modals": {
+        "addTitle": "Neuer API-Zugang",
+        "editTitle": "API-Zugang ändern",
+        "deleteTitle": "API-Zugang löschen",
+        "deleteInfo": "Möchtest du diesen API-Zugang löschen? Sobald der Zugang gelöscht wurde, kann der Partner nicht mehr auf den Dienst zugreifen. Der API-Schlüssel ist damit ungültig.",
+        "errorInCreation": "Ein Fehler ist aufgetreten. Beachte die rot markierten Felder.",
+        "consumerName": "Partner",
+        "description": "Beschreibung (inkl. API-Endpunkt)",
+        "services": "API-Endpunkt",
+        "apiKey": "API-Key",
+        "buttonCreate": "API-Key generieren",
+        "buttonSave": "Speichern",
+        "buttonCancel": "Abbrechen"
+      }
+    },
+    "inviteProfessionalStaffModal": {
+      "modalTitle": "Personal einladen",
+      "modalContent": "Das System wird eine Einladung an diese E-Mail-Adresse versenden. Falls bereits ein Benutzerkonto existiert, wird nach dem Log-in die Rolle zugeordnet.  Falls kein Benutzerkonto vorhanden ist, muss zuerst ein neues registriert werden."
+    },
+    "removeProfessionalMemberModal": {
+      "modalTitle": "Personal löschen",
+      "modalText": "Bist du sicher, dass du das Personal mit  <strong>{{email}}</strong> löschen möchtest? Das kann nicht rückgängig gemacht werden.",
+      "buttonConfirm": "Löschen",
+      "buttonCancel": "Abbrechen"
+    },
+    "customDatePicker": {
+      "defaultPatternError": "Bitte verwende das folgende Datumsformat: TT.MM.JJJJ - TT.MM.JJJJ",
+      "defaultPlaceholder": "Datum von - bis"
+    },
+    "notAuthorizedPage": {
+      "title": "Der Zugriff wurde verweigert",
+      "description": "Du hast keine Berechtigung für diese Seite.",
+      "buttonRedirect": "Zurück zur Startseite"
+    },
+    "reservationChangeHistoryExcel": {
+      "documentTitle": "Änderungshistorie der Reservierungen für {{Hut_Name}}, {{range_of_dates}}",
+      "reservationNumber": "Reservierungsnummer",
+      "creationDate": "Datum/Zeit",
+      "sourceChange": "Quelle",
+      "user": "Benutzer/in",
+      "eventType": "Ereignistyp",
+      "description": "Beschreibung",
+      "unmodified": "Unverändert",
+      "closed": "Geschlossen",
+      "serviced": "Bewirtschaftet",
+      "unserviced": "Unbewirtschaftet",
+      "none": "Keine",
+      "standard": "Standard",
+      "group": "Gruppe",
+      "simple": "Einfach",
+      "staggered": "Gestaffelt",
+      "add": "Hinzugefügt",
+      "mod": "Geändert",
+      "del": "Gelöscht"
+    },
+    "hutsOccupancyExcel": {
+      "documentTitle": "Hüttenbelegung für {{tenantCode}}, {{range_of_dates}}",
+      "hut_id": "Hütten ID",
+      "hut_name": "Hüttenname",
+      "reservation_number": "Reservationsnummer",
+      "arrival_date": "Ankunftsdatum",
+      "departure_date": "Abreisedatum",
+      "number_of_nights": "Nacht/Nächte",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "company_name": "Firmenname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "address": "Adresse 1",
+      "address_optional": "Adresse 2",
+      "zip_code": "PLZ",
+      "location": "Ort",
+      "country": "Land",
+      "group": "Gruppe",
+      "number_of_guests": "Gäste",
+      "number_of_children": "Davon Kinder",
+      "categories": "Halbpension",
+      "halfboard": "Halbpension",
+      "vegetarians": "Davon Vegi",
+      "status": "Status",
+      "mountain_guides": "Bergführer/innen",
+      "payment_amount": "Gebühr",
+      "pending_fees": "Offene Gebühren",
+      "charged_fees": "Verrechnte Gebühren",
+      "transaction_id": "Transaction ID",
+      "charging_error": "Belastungsfehler"
+    },
+    "exportReservationHistoryErrorModal": {
+      "title": "Export nicht möglich",
+      "description": "Du kannst nicht mehr als {{maxNum}}} Reservierungen exportieren. Bitte grenze den Zeitraum ein."
+    },
+    "exportReservationHistoryModal": {
+      "title": "Änderungshistorie der Reservierungen exportieren",
+      "description": "Wähle den Datumsbereich aus",
+      "buttonExport": "Exportieren"
+    },
+    "exportHutsOccupancyModal": {
+      "title": "Hüttenbelegung exportieren",
+      "description": "Wähle den Datumsbereich aus",
+      "buttonExport": "Exportieren"
+    },
+    "mergeTwoAccounts": {
+      "title": "Zwei Konten zusammenführen",
+      "infoText": "Du beginnst den Zusammenführungsprozess des aktuellen Kontos mit einem zweiten Konto. Wenn du dich entscheidest, ein anderes Konto mit deinem aktuellen Konto zusammenzulegen, wird das zusammengeführte Konto gelöscht und du kannst dich bei diesem Konto nicht mehr anmelden.<br>Alle Reservierungen des zusammengelegten Kontos werden auf das aktuelle Konto übertragen - es gehen keine Reservierungen verloren. Die Kreditkarten mit dem längsten Ablaufdatum bleiben bestehen, die anderen werden gelöscht.\n<b>Diese Aktion kann nicht rückgängig gemacht werden.</b>.<br>Um mit der Zusammenlegung fortzufahren, melde dich bitte bei dem Konto an, das du mit dem aktuellen Konto zusammenführen möchtest:<br>",
+      "emailDividerText": "Bitte Anmeldedaten eingeben",
+      "credentialsError": "Die Anmeldedaten sind nicht korrekt.",
+      "sacInfoText": "Die eingegebene E-Mail-Adresse ist mit einem Benutzerkonto eines Alpenvereins verbunden. Bitte klicke auf das Login des entsprechenden Alpenvereins.",
+      "executeButton": "Ausführen",
+      "cancelMergeButton": "Abbrechen",
+      "emailField": "E-Mail",
+      "passwordField": "Passwort",
+      "mergeNotPossibleTitle": "Die Zusammenführung ist nicht möglich.",
+      "mergeNotPossibleText": "Die beiden Benutzerkonten können nicht zusammengeführt werden, da wir z.B. Zusammenführung von Profi-Konten nicht unterstützen.",
+      "mergeAlreadyInProgressText": "Diese E-Mail wird bereits in einem anderen, noch nicht abgeschlossenen Zusammenführungsprozess verwendet.",
+      "confirmPageText": "<b>Die beiden Benutzerkonten können nun zusammengeführt werden.</b><br><ul><li>Alle Reservierungen dieses Kontos {{accountToMerge}} werden auf das andere Konto {{requestingAccount}} übertragen.</li><li>Es gehen keine Reservierungen verloren.</li><li>Diese Aktion kann nicht rückgängig gemacht werden kann.</li></ul><br>Klicke auf 'Ausführen', um die beiden Benutzerkonten jetzt zusammenzuführen.<br>",
+      "loginInfoText": "Die beiden Benutzerkonten wurden zusammengeführt. Bitte melde  dich mit deinem aktuellen Benutzerkonto {{requestingAccount}} an, um dein aktualisiertes Konto zu sehen.",
+      "sameAccountError": "Die eingegebene E-Mail-Adresse darf nicht die gleiche sein."
+    },
+    "waitingListReminder": {
+      "message": "Achtung! Du hast {{numberOfWaitingList}} Gäste auf der Warteliste mit {{numberOfReservations}} Reservierung/en für die nächsten {{waitingListRemainder}} Tage. Bitte bearbeite diese zeitnah.",
+      "buttonWaitingList": "Warteliste"
+    },
+    "exportHutChangeHistoryModal": {
+      "title": "Konfigurationshistorie der Hütte exportieren",
+      "description": "Wähle den Datumsbereich aus",
+      "buttonExport": "Export"
+    },
+    "hutConfigurationChangeHistoryExcel": {
+      "documentTitle": "Konfigurationshistorie für {{Hut_Name}}, {{range_of_dates}}",
+      "hutId": "Hütten ID",
+      "hutName": "Hüttenname",
+      "auditTime": "Zeit",
+      "changedBy": "Benutzer/in",
+      "revisionType": "Änderungstyp",
+      "hutUnlocked": "Hütte aktiviert",
+      "hasOnlinePayment": "Kreditkartenmodul aktiv",
+      "isNoShowFeesEnabled": "No-show Gebühren aktiv",
+      "noshowAmountProfessional": "No-Show Gebühr Profi",
+      "noshowAmountStandard": "No-Show Gebühr Standard",
+      "cancellationPayment": "Stornotyp",
+      "cancellationLevel1DaysProfessional": "Frist Stornostufe 1 - Profi",
+      "cancellationLevel1AmountProfessional": "Gebühr Stornostufe 1 -Profi",
+      "cancellationLevel2DaysProfessional": "Frist Stornostufe 2 - Profi",
+      "cancellationLevel2AmountProfessional": "Gebühr Stornostufe 2 -Profi",
+      "cancellationLevel1DaysStandard": "Frist Stornostufe 1 - Standard",
+      "cancellationLevel1AmountStandard": "Gebühr Stornostufe 1 - Standard",
+      "cancellationLevel2DaysStandard": "Frist Stornostufe 2 - Standard",
+      "cancellationLevel2AmountStandard": "Gebühr Stornostufe 2 - Standard",
+      "groupSize": "Gruppengrösse",
+      "deadlineUserType": "Fristen",
+      "deadlineModificationDeadlineHours": "Änderung bis",
+      "deadlineReservationDeadlineHours": "Reservierung bis",
+      "deadlineCancellationDeadlineHours": "Storno bis",
+      "deadlineReservationFromDays": "Reservierung von",
+      "deadlineConfirmationDeadlineHours": "Bestätigung innerhalb",
+      "assignmentOnRoomsLevel": "Zuweisung auf Zimmerebene",
+      "waitingListEnabled": "Warteliste aktiv",
+      "waitingListReminder": "Erinnerung an Warteliste",
+      "waitingListConfirmationDeadlineHours": "Bestätigungsfrist in Stunden",
+      "bedCategoryShortName": "Kategorie Kurzbezeichnung",
+      "bedCategoryVisibility": "Kategorie aktiv",
+      "bedCategoryTotalSleepingPlaces": "Anzahl Schlafplätze",
+      "quotaReservationMode": "Modus der Kapazitätsänderung",
+      "quotaBeginDate": "Kapazitätsänderung bis",
+      "quotaEndDate": "Kapazitätsänderung von",
+      "quotaBedCategoriesData": "Kapazitätsänderung pro Kategorie",
+      "quotaDescriptions": "Beschreibung der Kapazitätsänderung"
+    },
+    "paymentErrorModal": {
+      "title": "Titel",
+      "description": "Beschreibung"
+    },
+    "snackBarSessionExpired": "Deine Sitzung ist abgelaufen. Bitte logge dich erneut ein, um fortzufahren.",
+    "modify_reservation_modal": {
+      "title": "Reservierung bearbeiten",
+      "infoMessage": "Die Änderungen, die du an dieser Reservierung vornimmst, verursachen zusätzliche Gebühren. Möchtest du fortfahren?",
+      "yes": "Ja",
+      "no": "Nein",
+      "infoMessagePayment": "Die Änderungen, die du an dieser Reservierung vorgenommen hast, verursachen zusätzliche Gebühren in Höhe von <strong>{{currency}} {{total_amount}}</strong> {{reason}}.<br/><br/><strong>Möchtest du fortfahren?</strong>"
+    },
+    "modify_reservation_payment_modal": {
+      "title": "Reservierung bearbeiten",
+      "infoMessage": "Die Änderungen, die du an dieser Reservierung vorgenommen hast, verursachen zusätzliche Gebühren in der Höhe von {{total_amount}}.",
+      "secondaryInfoMessage": "Dieser Betrag wird von der Kreditkarte abgebucht.",
+      "confirmMessage": "Bist du sicher, dass du fortfahren willst?",
+      "gtcMessage": "AGB gelesen und akzeptiert {{GTC_file}}",
+      "yes": "Ja",
+      "no": "Nein",
+      "payment": "Gebühren",
+      "reasons": {
+        "reducePeople": "Reduktion der Gäste von {{original}} zu {{new}}",
+        "reduceNight": "Reduktion der Nacht/Nächte von {{original}} zu {{new}}",
+        "movingDates": "Verschiebung der Reservierung von {{original_date}} zu {{new_date}}"
+      }
+    }
+  }
