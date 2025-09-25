@@ -35,7 +35,7 @@ def fetch_hut_availability(hut_id: int) -> Availability | None:
         return Availability(
             hut_id=hut_id,
             fetched_at=datetime.datetime.now(),
-            availability_data_list=availability_data_list
+            availability_data_list=availability_data_list,
         )
     else:
         print(f"Failed to fetch availability data for hut {hut_id}")

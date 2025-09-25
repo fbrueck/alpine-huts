@@ -1,6 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 
 def to_camel(string: str) -> str:
@@ -81,7 +81,7 @@ class HutInfo(BaseModel):
 
 
 class AvailabilityData(AlpineHutBaseModel):
-    free_beds: int
+    free_beds: int | None
     hut_status: str
     date: str
     date_formatted: str

@@ -8,17 +8,22 @@ BUCKET_NAME = "fab-alpine-huts-data"
 PATH_NAME = "raw-alpine-huts"
 
 
-def upload_hut_info_to_s3(hut_info: HutInfo):
+def _upload_file_to_s3(file_path: str, s3_key: str, data: str):
     try:
-        key = f"{PATH_NAME}/hut-info/{hut_info.hut_id}.json"
-        s3.put_object(Bucket=BUCKET_NAME, Key=key, Body=hut_info.model_dump_json())
+        s3.put_object(
+            Bucket=BUCKET_NAME, Key=f"{PATH_NAME}/{s3_key}/{file_path}", Body=data
+        )
     except Exception as e:
         print(f"Error uploading file: {e}")
+
+
+def upload_hut_info_to_s3(hut_info: HutInfo):
+    _upload_file_to_s3(
+        f"{hut_info.hut_id}.json", "hut-info", hut_info.model_dump_json()
+    )
 
 
 def upload_availability_to_s3(availability: Availability):
-    try:
-        key = f"{PATH_NAME}/availability/{availability.hut_id}.json"
-        s3.put_object(Bucket=BUCKET_NAME, Key=key, Body=availability.model_dump_json())
-    except Exception as e:
-        print(f"Error uploading file: {e}")
+    _upload_file_to_s3(
+        f"{availability.hut_id}.json", "availability", availability.model_dump_json()
+    )
