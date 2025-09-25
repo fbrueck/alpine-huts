@@ -5,8 +5,6 @@ FUNCTION_NAME   := alpine_huts_ingestion
 IMAGE_TAG       := latest
 ECR_URI         := $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):$(IMAGE_TAG)
 
-@echo "AWS_REGION: $(AWS_REGION)"
-@echo "AWS_REGION: $(ACCOUNT_ID)"
 
 .PHONY: all build tag push update-lambda clean
 
@@ -17,6 +15,9 @@ requirements:
 	uv pip freeze > requirements.txt
 
 build:
+	@echo "AWS_REGION: $(AWS_REGION)"
+	@echo "AWS_REGION: $(ACCOUNT_ID)"
+
 	@echo "Building the Docker image..."
 	docker buildx build --provenance=false --platform linux/amd64 -t $(REPO_NAME):latest --load .
 
