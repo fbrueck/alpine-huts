@@ -1,0 +1,30 @@
+
+version: 2
+
+sources:
+  - name: raw_alpine_huts
+    tables:
+      - name: hut_info
+        columns:
+          - name: hut_id
+            tests:
+              - unique
+              - not_null
+          - name: hut_info_data
+            tests:
+              - not_null
+          - name: fetched_at
+            tests:
+              - not_null
+      - name: availability
+        columns:
+          - name: hut_id
+            tests:
+          #    - unique
+              - not_null
+          - name: availability_data_list
+            tests:
+              - not_null
+          - name: fetched_at
+            tests:
+              - not_null
