@@ -5,6 +5,9 @@ FUNCTION_NAME   := alpine_huts_ingestion
 IMAGE_TAG       := latest
 ECR_URI         := $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):$(IMAGE_TAG)
 
+@echo "AWS_REGION: $(AWS_REGION)"
+@echo "AWS_REGION: $(ACCOUNT_ID)"
+
 .PHONY: all build tag push update-lambda clean
 
 all: requirements build tag push update-lambda
