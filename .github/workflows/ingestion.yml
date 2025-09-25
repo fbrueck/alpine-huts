@@ -27,13 +27,11 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION || 'eu-west-1' }}
+          aws-region: ${{ secrets.AWS_REGION || 'eu-central-1' }}
 
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-
-      - run: aws sts get-caller-identity --query Account --output text
 
       - name: Build and deploy lambda
         run: make build-and-deploy
