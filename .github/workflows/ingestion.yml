@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'ingestion/**'
+  workflow_dispatch:
 
 jobs:
   terraform:
