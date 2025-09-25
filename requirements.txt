@@ -1,5 +1,0 @@
-pydantic
-requests
-boto3
-black
-pydantic-glue
