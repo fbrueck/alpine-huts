@@ -10,11 +10,6 @@ jobs:
     name: Terraform Apply
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./infrastructure
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -37,4 +32,4 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION || 'eu-west-1' }}
 
       - name: Generate Glue schemas and deploy infrastructure
-        run: make all
+        run: make update-infra
