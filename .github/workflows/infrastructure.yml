@@ -1,4 +1,4 @@
-name: Terraform Deploy
+name: Deploy infrastructure
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   terraform:
-    name: Terraform Apply
+    name: Deploy infrastructure
     runs-on: ubuntu-latest
 
     steps:
