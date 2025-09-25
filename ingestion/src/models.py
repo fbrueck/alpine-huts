@@ -45,7 +45,7 @@ class HutBedCategory(AlpineHutBaseModel):
     reservation_mode: str
     hut_bed_category_language_data: List[HutBedCategoryLanguageData]
     is_linked_to_reservation: bool
-    tenant_bed_category_id: int # debug
+    tenant_bed_category_id: int
 
 
 class GeneralDescription(AlpineHutBaseModel):
