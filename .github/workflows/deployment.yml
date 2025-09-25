@@ -36,9 +36,11 @@ jobs:
   deploy_infrastructure:
     name: Deploy Infrastructure
     needs: detect_changes
-    if: needs.detect_changes.outputs.infrastructure_changed == 'true'
     runs-on: ubuntu-latest
     steps:
+      - name: Check infrastructure changes
+        if: needs.detect_changes.outputs.infrastructure_changed == 'false'
+        run: echo "No infrastructure changes, skipping deployment." && exit 0
       - uses: actions/checkout@v3
       - name: Set up AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
