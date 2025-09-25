@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'infrastructure/**'
-      - 'ingestion/**'
+      - 'ingestion/src/models.py'
   workflow_dispatch:
 
 jobs:

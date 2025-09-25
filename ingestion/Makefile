@@ -15,9 +15,6 @@ requirements:
 	uv pip freeze > requirements.txt
 
 build:
-	@echo "AWS_REGION: $(AWS_REGION)"
-	@echo "AWS_REGION: $(ACCOUNT_ID)"
-
 	@echo "Building the Docker image..."
 	docker buildx build --provenance=false --platform linux/amd64 -t $(REPO_NAME):latest --load .
 
