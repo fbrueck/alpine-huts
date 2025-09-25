@@ -14,8 +14,9 @@ jobs:
     name: Detect changes
     runs-on: ubuntu-latest
     outputs:
-      infra_changed: ${{ steps.filter.outputs.infra }}
+      infrastructure_changed: ${{ steps.filter.outputs.infrastructure }}
       ingestion_changed: ${{ steps.filter.outputs.ingestion }}
+      data_changed: ${{ steps.filter.outputs.data }}
     steps:
       - uses: actions/checkout@v3
 
@@ -24,7 +25,7 @@ jobs:
         uses: dorny/paths-filter@v3
         with:
           filters: |
-            infra:
+            infrastructure:
               - 'infrastructure/**'
               - 'ingestion/src/models.py'
             ingestion:
@@ -32,10 +33,10 @@ jobs:
             data:
               - 'data/**'
 
-  deploy_infra:
+  deploy_infrastructure:
     name: Deploy Infrastructure
     needs: detect_changes
-    if: needs.detect_changes.outputs.infra_changed == 'true'
+    if: needs.detect_changes.outputs.infrastructure_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -61,7 +62,7 @@ jobs:
 
   deploy_ingestion:
     name: Deploy Ingestion Lambda
-    needs: [detect_changes, deploy_infra]
+    needs: [detect_changes, deploy_infrastructure]
     if: needs.detect_changes.outputs.ingestion_changed == 'true'
     runs-on: ubuntu-latest
     steps:
@@ -86,8 +87,8 @@ jobs:
 
   buid_data_models:
     name: Build data models
-    needs: [detect_changes, deploy_infra]
-    if: needs.detect_changes.outputs.data == 'true'
+    needs: [detect_changes, deploy_infrastructure]
+    if: needs.detect_changes.outputs.data_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

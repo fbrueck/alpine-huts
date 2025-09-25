@@ -37,7 +37,7 @@ projected as (
             WHEN day_of_week(availability_date) = 7 THEN 'Sunday'
         END AS day_of_week_label
 
-    from unnested --debug
+    from unnested
 ),
 
 joined as (
