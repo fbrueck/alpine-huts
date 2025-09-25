@@ -1,0 +1,91 @@
+name: Deploy Infra & Ingestion
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infrastructure/**'
+      - 'ingestion/**'
+      - 'data/**'
+
+jobs:
+  detect_changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+    outputs:
+      infra_changed: ${{ steps.filter.outputs.infra }}
+      ingestion_changed: ${{ steps.filter.outputs.ingestion }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check changed folders
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            infra:
+              - 'infrastructure/**'
+              - 'ingestion/src/models.py'
+            ingestion:
+              - 'ingestion/**'
+            data:
+              - 'data/**'
+
+  deploy_infra:
+    name: Deploy Infrastructure
+    needs: detect_changes
+    if: needs.detect_changes.outputs.infra_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Deploy Terraform
+        working-directory: infrastructure
+        run: |
+          terraform init -backend-config="bucket=my-tf-state-bucket"
+          terraform apply -auto-approve
+
+  deploy_ingestion:
+    name: Deploy Ingestion Lambda
+    needs: [detect_changes, deploy_infra]
+    if: needs.detect_changes.outputs.ingestion_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Login to ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build & Deploy Lambda
+        working-directory: ingestion
+        run: make build-and-deploy
+
+  buid_data_models:
+    name: Build data models
+    needs: [detect_changes, deploy_infra]
+    if: needs.detect_changes.outputs.data == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Build data models
+        run: make build-data-models

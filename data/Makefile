@@ -2,7 +2,7 @@
 
 RUN_DBT_COMMAND := cd dbt && uvx --with dbt-athena-community --from dbt-core dbt
 
-all:
+build:
 	@echo "Build dbt models..."
 	$(RUN_DBT_COMMAND) build
 

@@ -1,9 +1,10 @@
 
-.PHONY: transformation generate-glue-schemas update-infra build-and-deploy all
+.PHONY: data generate-glue-schemas update-infra build-and-deploy all
 
 TERRAFORM_DIR=infrastructure
 
-all: update-infra build-and-deploy transformation
+all: update-infra build-and-deploy data
+
 
 generate-glue-schemas: 
 	@echo "Generate glue schema..."
@@ -21,9 +22,9 @@ update-infra: generate-glue-schemas init validate
 	terraform -chdir=$(TERRAFORM_DIR) apply
 
 build-and-deploy:
-	@echo "Deploying ingestion and transformation..."
+	@echo "Deploying ingestion and data..."
 	make -C ingestion all
 
-transformation:
-	@echo "Run transformation..."
-	make -C transformation all
+build-data-models:
+	@echo "Build data models..."
+	make -C data build

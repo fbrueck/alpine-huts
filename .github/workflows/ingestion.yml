@@ -1,11 +1,6 @@
 name: Deploy ingestion
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'ingestion/**'
   workflow_dispatch:
 
 jobs:
