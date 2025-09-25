@@ -1,0 +1,12 @@
+alpine_huts:
+  outputs:
+    dev:
+      database: awsdatacatalog
+      region_name: eu-central-1
+      s3_data_dir: s3://fab-alpine-huts-data/alpine-huts
+      s3_staging_dir: s3://fab-alpine-huts-data/query-results/dbt
+      schema: alpine_huts
+      threads: 10
+      query_timeout: 10
+      type: athena
+  target: dev
