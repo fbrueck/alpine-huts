@@ -1,8 +1,12 @@
 .PHONY: all
 
+RUN_DBT_COMMAND := cd dbt && uvx --with dbt-athena-community --from dbt-core dbt
+
 all:
-	cd dbt && uvx --with dbt-athena-community dbt build
+	@echo "Build dbt models..."
+	$(RUN_DBT_COMMAND) build
 
 clean:
-	cd dbt && uvx --with dbt-athena-community dbt clean
+	@echo "Clean dbt artifacts..."
+	$(RUN_DBT_COMMAND) clean
 

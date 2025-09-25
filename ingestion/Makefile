@@ -7,14 +7,11 @@ ECR_URI         := $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME
 
 .PHONY: all build tag push update-lambda clean
 
-all: .venv build tag push update-lambda
+all: requirements build tag push update-lambda
 
-.venv:
-	@echo "Creating a virtual environment..."
-	python3 -m venv .venv
-	@echo "Activating the virtual environment..."
-	@echo "Run 'source .venv/bin/activate' to activate the virtual environment."
-	pip install -r reuqirements.txt
+requirements:
+	@echo "Generate requirements.txt..."
+	uv pip freeze > requirements.txt
 
 build:
 	@echo "Building the Docker image..."
@@ -35,5 +32,5 @@ update-lambda:
 clean:
 	@echo "Cleaning up local images..."
 	docker rmi $(REPO_NAME):$(IMAGE_TAG) $(ECR_URI) || true
-	@echo "Cleaning up venv..."
-	rm -rf .venv
+	@echo "Cleaning up requirements..."
+	rm -rf requirements.txt

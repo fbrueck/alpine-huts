@@ -6,3 +6,10 @@ __pycache__
 .vscode
 generated
 logs
+
+requirements.txt
+
+
+target/
+dbt_packages/
+logs/
