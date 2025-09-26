@@ -2,6 +2,7 @@ locals {
   ingestion_repo_name = replace(local.ingestion_prefix, "_", "-")
   ecr_image_base_uri  = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${local.region}.amazonaws.com"
   ecr_image_uri       = "${local.ecr_image_base_uri}/${local.ingestion_repo_name}:latest"
+  ingestion_prefix = "alpine_huts_ingestion"
 }
 
 resource "aws_ecr_repository" "alpine_huts_ingestion" {
