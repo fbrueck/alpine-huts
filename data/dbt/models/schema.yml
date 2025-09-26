@@ -1,6 +1,21 @@
 
 version: 2
 
+models:
+  - name: alpine_huts__hut_info
+    columns:
+      - name: hut_id
+        data_tests:
+          - unique
+          - not_null
+      - name: hut_name
+        data_tests:
+          - not_null
+      - name: latitude
+      - name: longitude
+
+
+
 sources:
   - name: raw_alpine_huts
     tables:

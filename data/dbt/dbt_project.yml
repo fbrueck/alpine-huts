@@ -16,3 +16,4 @@ clean-targets:
 
 models:
   +materialized: view
+
