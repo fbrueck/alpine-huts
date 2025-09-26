@@ -1,9 +1,9 @@
 
 .PHONY: data generate-glue-schemas update-infra build-and-deploy all
 
-TERRAFORM_DIR=infrastructure
+TERRAFORM=terraform -chdir=$(TERRAFORM_DIR)
 
-all: update-infra build-and-deploy data
+all: infra ingestion data-models
 
 
 generate-glue-schemas: 
@@ -11,20 +11,15 @@ generate-glue-schemas:
 	uvx pydantic-glue -f ./ingestion/src/models.py -c Availability -o generated/availability.json --schema-by-name
 	uvx pydantic-glue -f ./ingestion/src/models.py -c HutInfo -o generated/hut_info.json --schema-by-name
 
-init:
-	cd $(TERRAFORM_DIR) && terraform init
 
-validate:
-	cd $(TERRAFORM_DIR) && terraform validate
-
-update-infra: generate-glue-schemas init validate
+infra: generate-glue-schemas
 	@echo "Update infrastructure..."
-	terraform -chdir=$(TERRAFORM_DIR) apply
+	$(TERRAFORM) init && $(TERRAFORM) apply
 
-build-and-deploy:
+ingestion:
 	@echo "Deploying ingestion and data..."
 	make -C ingestion all
 
-build-data-models:
+data-models:
 	@echo "Build data models..."
 	make -C data build
