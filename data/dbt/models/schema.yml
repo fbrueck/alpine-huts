@@ -20,7 +20,6 @@ sources:
         columns:
           - name: hut_id
             tests:
-          #    - unique
               - not_null
           - name: availability_data_list
             tests:

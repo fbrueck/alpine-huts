@@ -3,9 +3,9 @@ alpine_huts:
     dev:
       database: awsdatacatalog
       region_name: eu-central-1
-      s3_data_dir: s3://fab-alpine-huts-data/alpine-huts
+      s3_data_dir: s3://fab-alpine-huts-data/materialized-tables
       s3_staging_dir: s3://fab-alpine-huts-data/query-results/dbt
-      schema: alpine_huts
+      schema: default
       threads: 10
       query_timeout: 10
       type: athena

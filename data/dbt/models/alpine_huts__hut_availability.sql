@@ -1,31 +1,22 @@
-with raw_availability as (
-    SELECT hut_id, availability_data_list FROM {{source("raw_alpine_huts", "availability")}}
+with stage_hut_availability as (
+    SELECT * FROM {{ref("stage_alpine_huts__hut_availability")}}
 ),
 
 hut_info as (
-    SELECT hut_id, hut_name, latitude, longitude FROM {{ref("hut_info")}}
-),
-
-unnested as (
-    select 
-        hut_id,
-        availability_data,
-        cast(from_iso8601_timestamp(availability_data.date) as TIMESTAMP) as availability_date
-    from raw_availability
-    cross join unnest(availability_data_list) as t(availability_data)
+    SELECT hut_id, hut_name, latitude, longitude FROM {{ref("alpine_huts__hut_info")}}
 ),
 
 projected as (
     select
         hut_id,
-        availability_data.hut_status,  
-        availability_data.free_beds,
-        availability_data.total_sleeping_places,
+        hut_status,  
+        free_beds,
+        total_sleeping_places,
+        availability_date,
 
         month(availability_date) as month,
         year(availability_date) as year,
         day_of_month(availability_date) as day,
-        availability_date,
 
         CASE
             WHEN day_of_week(availability_date) = 1 THEN 'Monday'
@@ -37,7 +28,7 @@ projected as (
             WHEN day_of_week(availability_date) = 7 THEN 'Sunday'
         END AS day_of_week_label
 
-    from unnested
+    from stage_hut_availability
 ),
 
 joined as (
