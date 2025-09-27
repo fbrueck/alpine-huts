@@ -11,7 +11,9 @@ all: build push update-lambda
 
 build:
 	@echo "Generate requirements.txt..."
+	uv sync
 	uv pip freeze > requirements.txt
+	uv pip install -e .
 	@echo "Building the Docker image..."
 	docker buildx build --provenance=false --platform linux/amd64 -t $(REPO_NAME):latest --load .
 	@echo "Tagging the image with ECR URI..."
