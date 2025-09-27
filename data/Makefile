@@ -2,8 +2,7 @@
 
 AWS_REGION      := eu-central-1
 ACCOUNT_ID      := $(shell aws sts get-caller-identity --query Account --output text)
-REPO_NAME       := dbt-lambda
-FUNCTION_NAME   := dbt_lambda
+REPO_NAME       := dbt
 IMAGE_TAG       := latest
 ECR_URI         := $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):$(IMAGE_TAG)
 
@@ -43,10 +42,6 @@ tag: build-docker
 push: tag
 	@echo "Pushing the image to ECR..."
 	docker push $(ECR_URI)
-
-update-lambda: push
-	@echo "Updating the Lambda function..."
-	aws lambda update-function-code --function-name ${FUNCTION_NAME} --image-uri $(ECR_URI)
 
 clean:
 	@echo "Cleaning up local images..."
