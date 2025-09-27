@@ -57,7 +57,7 @@ jobs:
           terraform_version: 1.6.0
 
       - name: Generate Glue schemas and deploy infrastructure
-        run: make update-infra
+        run: make infra
 
   deploy_ingestion:
     name: Deploy Ingestion Lambda
