@@ -1,6 +1,6 @@
 .PHONY: build push clean
 
-AWS_REGION      := $(shell aws configure get region)
+AWS_REGION      := eu-central-1
 ACCOUNT_ID      := $(shell aws sts get-caller-identity --query Account --output text)
 REPO_NAME       := dbt
 IMAGE_TAG       := latest
