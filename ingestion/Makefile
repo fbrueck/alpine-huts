@@ -1,3 +1,5 @@
+.PHONY: all build push update-lambda clean
+
 AWS_REGION      := eu-central-1
 ACCOUNT_ID      := $(shell aws sts get-caller-identity --query Account --output text)
 REPO_NAME       := alpine-huts-ingestion
@@ -5,20 +7,15 @@ FUNCTION_NAME   := alpine_huts_ingestion
 IMAGE_TAG       := latest
 ECR_URI         := $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):$(IMAGE_TAG)
 
-
-.PHONY: all build tag push update-lambda clean
-
-all: requirements build tag push update-lambda
-
-requirements:
-	@echo "Generate requirements.txt..."
-	uv pip freeze > requirements.txt
+all: build push update-lambda
 
 build:
+	@echo "Generate requirements.txt..."
+	uv sync
+	uv pip freeze > requirements.txt
+	uv pip install -e .
 	@echo "Building the Docker image..."
 	docker buildx build --provenance=false --platform linux/amd64 -t $(REPO_NAME):latest --load .
-
-tag:
 	@echo "Tagging the image with ECR URI..."
 	docker tag $(REPO_NAME):$(IMAGE_TAG) $(ECR_URI)
 

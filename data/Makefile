@@ -1,4 +1,4 @@
-.PHONY: dbt
+.PHONY: build push clean
 
 AWS_REGION      := eu-central-1
 ACCOUNT_ID      := $(shell aws sts get-caller-identity --query Account --output text)
@@ -6,40 +6,19 @@ REPO_NAME       := dbt
 IMAGE_TAG       := latest
 ECR_URI         := $(ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(REPO_NAME):$(IMAGE_TAG)
 
-RUN_DBT_COMMAND := cd dbt && uvx --with dbt-athena-community --from dbt-core dbt
+all: build push
 
-build: deps
-	@echo "Build dbt models..."
-	$(RUN_DBT_COMMAND) build
-
-
-deps:
-	@echo "Install dbt dependencies..."
-	$(RUN_DBT_COMMAND) deps
-
-
-clean:
-	@echo "Clean dbt artifacts..."
-	$(RUN_DBT_COMMAND) clean
-
-dbt:
-	@echo "Run dbt command..."
-	$(RUN_DBT_COMMAND) $(filter-out $@,$(MAKECMDGOALS))
-
-
-requirements:
+build:
 	@echo "Generate requirements.txt..."
+	uv sync
 	uv pip freeze > requirements.txt
 
-build-docker: requirements
 	@echo "Building the Docker image..."
 	docker buildx build --provenance=false --platform linux/amd64 -t $(REPO_NAME):latest --load .
-
-tag: build-docker
 	@echo "Tagging the image with ECR URI..."
 	docker tag $(REPO_NAME):$(IMAGE_TAG) $(ECR_URI)
 
-push: tag
+push:
 	@echo "Pushing the image to ECR..."
 	docker push $(ECR_URI)
 

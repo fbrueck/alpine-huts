@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'infrastructure/**'
-      - 'ingestion/**'
-      - 'data/**'
 
 jobs:
   detect_changes:
@@ -34,7 +30,7 @@ jobs:
               - 'data/**'
 
   deploy_infrastructure:
-    name: Deploy Infrastructure
+    name: Deploy infrastructure
     needs: detect_changes
     runs-on: ubuntu-latest
     steps:
@@ -60,7 +56,7 @@ jobs:
           terraform_version: 1.6.0
 
       - name: Generate Glue schemas and deploy infrastructure
-        run: make update-infra
+        run: make infra
 
   deploy_ingestion:
     name: Deploy Ingestion Lambda
@@ -85,7 +81,7 @@ jobs:
           version: "0.8.22"
 
       - name: Build & Deploy Lambda
-        run: make build-and-deploy
+        run: cd ingestion && make
 
   buid_data_models:
     name: Build data models
@@ -107,4 +103,29 @@ jobs:
           version: "0.8.22"
 
       - name: Build data models
-        run: make build-data-models
+        run: cd data/dbt && uv run dbt deps && uv run dbt run && uv run dbt test
+
+  update_dbt_image:
+    name: Update dbt image
+    needs: [detect_changes, deploy_infrastructure]
+    if: needs.detect_changes.outputs.data_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.8.22"
+
+      - name: Login to ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and update image
+        run: cd data && make
