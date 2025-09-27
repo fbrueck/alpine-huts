@@ -15,7 +15,6 @@ jobs:
       data_changed: ${{ steps.filter.outputs.data }}
     steps:
       - uses: actions/checkout@v3
-
       - name: Check changed folders
         id: filter
         uses: dorny/paths-filter@v3
@@ -33,10 +32,8 @@ jobs:
     name: Deploy infrastructure
     needs: detect_changes
     runs-on: ubuntu-latest
+    if: needs.detect_changes.outputs.infrastructure_changed == 'true'
     steps:
-      - name: Check infrastructure changes
-        if: needs.detect_changes.outputs.infrastructure_changed == 'false'
-        run: echo "No infrastructure changes, skipping deployment." && exit 0
       - uses: actions/checkout@v3
       - name: Set up AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -61,7 +58,7 @@ jobs:
   deploy_ingestion:
     name: Deploy Ingestion Lambda
     needs: [detect_changes, deploy_infrastructure]
-    if: needs.detect_changes.outputs.ingestion_changed == 'true'
+    if: ${{!failure() && !cancelled() && needs.detect_changes.outputs.ingestion_changed == 'true'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -86,7 +83,7 @@ jobs:
   buid_data_models:
     name: Build data models
     needs: [detect_changes, deploy_infrastructure]
-    if: needs.detect_changes.outputs.data_changed == 'true'
+    if: ${{!failure() && !cancelled() && needs.detect_changes.outputs.data_changed == 'true'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -108,7 +105,7 @@ jobs:
   update_dbt_image:
     name: Update dbt image
     needs: [detect_changes, deploy_infrastructure]
-    if: needs.detect_changes.outputs.data_changed == 'true'
+    if: ${{!failure() && !cancelled() && needs.detect_changes.outputs.data_changed == 'true'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
