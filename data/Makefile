@@ -10,7 +10,9 @@ all: build push
 
 build:
 	@echo "Generate requirements.txt..."
+	uv sync
 	uv pip freeze > requirements.txt
+
 	@echo "Building the Docker image..."
 	docker buildx build --provenance=false --platform linux/amd64 -t $(REPO_NAME):latest --load .
 	@echo "Tagging the image with ECR URI..."
