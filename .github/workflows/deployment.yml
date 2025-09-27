@@ -3,8 +3,7 @@ name: Deploy Infra & Ingestion
 on:
   push:
     branches:
-      #- main
-      - chore/refactor-ci-cd
+      - main
 
 jobs:
   detect_changes:
@@ -36,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check infrastructure changes
-#        if: needs.detect_changes.outputs.infrastructure_changed == 'false'
+        if: needs.detect_changes.outputs.infrastructure_changed == 'false'
         run: echo "No infrastructure changes, skipping deployment." && exit 0
       - uses: actions/checkout@v3
       - name: Set up AWS credentials
@@ -62,7 +61,7 @@ jobs:
   deploy_ingestion:
     name: Deploy Ingestion Lambda
     needs: [detect_changes, deploy_infrastructure]
-#    if: needs.detect_changes.outputs.ingestion_changed == 'true'
+    if: needs.detect_changes.outputs.ingestion_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -87,7 +86,7 @@ jobs:
   buid_data_models:
     name: Build data models
     needs: [detect_changes, deploy_infrastructure]
-#    if: needs.detect_changes.outputs.data_changed == 'true'
+    if: needs.detect_changes.outputs.data_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -109,7 +108,7 @@ jobs:
   update_dbt_image:
     name: Update dbt image
     needs: [detect_changes, deploy_infrastructure]
-#    if: needs.detect_changes.outputs.data_changed == 'true'
+    if: needs.detect_changes.outputs.data_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
