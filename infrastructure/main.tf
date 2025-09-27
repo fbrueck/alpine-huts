@@ -11,11 +11,3 @@ terraform {
     encrypt = true
   }
 }
-
-data "aws_caller_identity" "current" {}
-
-locals {
-  account_id       = data.aws_caller_identity.current.account_id
-  region           = "eu-central-1"
-  ingestion_prefix = "alpine_huts_ingestion"
-}
