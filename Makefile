@@ -1,6 +1,7 @@
 
 .PHONY: infra glue-schemas
 
+TERRAFORM_DIR=./infrastructure
 TERRAFORM=terraform -chdir=$(TERRAFORM_DIR)
 
 all: infra
