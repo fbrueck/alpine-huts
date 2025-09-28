@@ -7,4 +7,5 @@ requires-python = ">=3.13"
 dependencies = [
     "awswrangler>=3.13.0",
     "streamlit>=1.49.1",
+    "streamlit-folium>=0.25.2",
 ]
