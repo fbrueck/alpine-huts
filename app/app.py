@@ -5,21 +5,33 @@ import folium
 from streamlit_folium import folium_static
 
 st.set_page_config(page_title="Alpine huts", layout="wide")
-st.markdown("""
+
+st.html(
+    """
     <style>
-        html, body, [data-testid="stApp"] {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
+        .block-container {
+            padding: 0 !important;
+            margin: 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+        .main {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .css-1aumxhk {
+            margin-top: 0 !important;
         }
 
-        .main, .block-container {
+        iframe {
             height: 100vh;
-            padding: 0;
-            margin: 0;
+            display: block;
         }
     </style>
-""", unsafe_allow_html=True)
+    """
+)
 
 
 @st.cache_data()
