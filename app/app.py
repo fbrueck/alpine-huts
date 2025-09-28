@@ -25,7 +25,7 @@ st.markdown("""
 @st.cache_data()
 def fetch_data():
     return wr.athena.read_sql_query(
-        "SELECT * FROM hut_availability", database="alpine_huts", ctas_approach=False
+        "SELECT * FROM hut_availability", database="alpine_huts", ctas_approach=False, workgroup="app"
     )
 
 data = fetch_data()
