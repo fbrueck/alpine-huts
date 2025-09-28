@@ -43,10 +43,10 @@ st.html(
     </style>
     """
 )
+#           header {visibility: hidden;}
 
 st.html("""
       <style>
-          header {visibility: hidden;}
           footer {visibility: hidden;}
           html, body, [data-testid="stApp"] {
               height: 100%;
