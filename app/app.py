@@ -6,62 +6,11 @@ from streamlit_folium import folium_static
 
 st.set_page_config(page_title="Alpine huts", layout="wide")
 
-# st.html(
-#     """
-#     <style>
-#         header {visibility: hidden;}
-#         footer {visibility: hidden;}
-#         .block-container {
-#             padding: 0 !important;
-#             margin: 0 !important;
-#             max-width: 100% !important;
-#             width: 100% !important;
-#         }
-#         .main {
-#             padding: 0 !important;
-#             margin: 0 !important;
-#         }
-#         .css-1aumxhk {
-#             margin-top: 0 !important;
-#         }
-
-#         iframe {
-#             height: 100vh;
-#             display: block;
-#         }
-#     </style>
-#     """
-# )
-
-
-st.html(
-    """
-    <style>
-    .st-emotion-cache-pd6qx2 {
-        display: none !important;
-    }
-    </style>
-    """
-)
-#           header {visibility: hidden;}
-
 st.html("""
       <style>
           footer {visibility: hidden;}
-          html, body, [data-testid="stApp"] {
-              height: 100%;
-              margin: 0;
-              padding: 0;
-          }
-
-          .main, .block-container {
-              height: 100vh;
-              padding: 0;
-              margin: 0;
-          }
       </style>
   """)
-
 
 @st.cache_data()
 def fetch_data():
@@ -75,28 +24,19 @@ data = fetch_data()
 with st.sidebar:
     status = st.multiselect("Hut status", data["hut_status"].unique(), default=["SERVICED"])
     day_of_week_labels = st.multiselect("Day of week", data["day_of_week_label"].unique())
-    availability_date_from = st.date_input(
-        "From date",
+    availability_date = st.date_input(
+        "Date",
         min_value=data["availability_date"].min(),
         max_value=data["availability_date"].max(),
     )
-    availability_date_to = st.date_input(
-        "To date",
-        min_value=data["availability_date"].min(),
-        max_value=data["availability_date"].max(),
-    )
-    only_available = st.checkbox("Only available huts")
+    list_only_available = st.checkbox("Show only available huts in list")
 
     if status:
         filtered_data = data[data["hut_status"].isin(status)]
     if day_of_week_labels:
-        filtered_data = filtered_data[data["day_of_week_label"].isin(day_of_week_labels)]
-    if availability_date_from:
-        filtered_data = filtered_data[data["availability_date"] >= availability_date_from]
-    if availability_date_to:
-        filtered_data = filtered_data[data["availability_date"] <= availability_date_to]
-    if only_available:
-        filtered_data = filtered_data[data["free_beds"] > 0]
+        filtered_data = filtered_data[filtered_data["day_of_week_label"].isin(day_of_week_labels)]
+    if availability_date:
+        filtered_data = filtered_data[filtered_data["availability_date"] == availability_date]
 
 
     filtered_data_with_location = filtered_data.dropna(subset=["latitude", "longitude", "free_beds"])
@@ -122,4 +62,9 @@ for _, row in filtered_data_with_location.iterrows():
 if bounds:  
     m.fit_bounds(bounds)
 
-folium_static(m, width=2000, height=2000)
+folium_static(m, width=2000, height=700)
+
+if list_only_available:
+    filtered_data = filtered_data[data["free_beds"] > 0]
+
+filtered_data
