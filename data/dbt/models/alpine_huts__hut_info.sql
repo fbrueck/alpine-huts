@@ -1,3 +1,11 @@
+{{ 
+    config(
+        materialized='table',
+        table_type='iceberg',
+        format='parquet',
+    )
+}}
+
 with raw_alpine_huts as (
     SELECT hut_id, hut_info_data FROM {{source("raw_alpine_huts", "hut_info")}}
 ),

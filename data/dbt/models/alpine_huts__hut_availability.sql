@@ -1,3 +1,11 @@
+{{ 
+    config(
+        materialized='table',
+        table_type='iceberg',
+        format='parquet',
+    )
+}}
+
 with stage_hut_availability as (
     SELECT * FROM {{ref("stage_alpine_huts__hut_availability")}}
 ),
