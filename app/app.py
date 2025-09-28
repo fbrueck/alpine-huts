@@ -6,32 +6,61 @@ from streamlit_folium import folium_static
 
 st.set_page_config(page_title="Alpine huts", layout="wide")
 
+# st.html(
+#     """
+#     <style>
+#         header {visibility: hidden;}
+#         footer {visibility: hidden;}
+#         .block-container {
+#             padding: 0 !important;
+#             margin: 0 !important;
+#             max-width: 100% !important;
+#             width: 100% !important;
+#         }
+#         .main {
+#             padding: 0 !important;
+#             margin: 0 !important;
+#         }
+#         .css-1aumxhk {
+#             margin-top: 0 !important;
+#         }
+
+#         iframe {
+#             height: 100vh;
+#             display: block;
+#         }
+#     </style>
+#     """
+# )
+
+
 st.html(
     """
     <style>
-        header {visibility: hidden;}
-        footer {visibility: hidden;}
-        .block-container {
-            padding: 0 !important;
-            margin: 0 !important;
-            max-width: 100% !important;
-            width: 100% !important;
-        }
-        .main {
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        .css-1aumxhk {
-            margin-top: 0 !important;
-        }
-
-        iframe {
-            height: 100vh;
-            display: block;
-        }
+    .st-emotion-cache-pd6qx2 {
+        display: none !important;
+    }
     </style>
     """
 )
+
+st.html("""
+      <style>
+          header {visibility: hidden;}
+          footer {visibility: hidden;}
+          html, body, [data-testid="stApp"] {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+          }
+
+          .main, .block-container {
+              height: 100vh;
+              padding: 0;
+              margin: 0;
+          }
+      </style>
+  """)
 
 
 @st.cache_data()
