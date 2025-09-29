@@ -3,6 +3,9 @@ import requests
 
 from models import Availability, AvailabilityData, HutInfo, HutInfoData
 
+import logging
+
+logger = logging.getLogger(__name__)
 
 BASE_URL = "https://www.hut-reservation.org/api/v1/reservation"
 
@@ -22,7 +25,7 @@ def fetch_hut_info(hut_id: int) -> HutInfo | None:
             hut_info_data=hut_info_data,
         )
     else:
-        print(f"Failed to fetch info data for hut {hut_id}")
+        logger.info(f"Failed to fetch info data for hut {hut_id}")
 
 
 def fetch_hut_availability(hut_id: int) -> Availability | None:
@@ -31,11 +34,13 @@ def fetch_hut_availability(hut_id: int) -> Availability | None:
 
     if response.status_code == 200:
         data_json = response.json()
-        availability_data_list = [AvailabilityData.model_validate_json(item) for item in data_json]
+        availability_data_list = [
+            AvailabilityData.model_validate_json(item) for item in data_json
+        ]
         return Availability(
             hut_id=hut_id,
             fetched_at=datetime.datetime.now(),
             availability_data_list=availability_data_list,
         )
     else:
-        print(f"Failed to fetch availability data for hut {hut_id}")
+        logger.info(f"Failed to fetch availability data for hut {hut_id}")

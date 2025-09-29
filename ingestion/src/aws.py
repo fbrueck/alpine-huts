@@ -1,6 +1,9 @@
 import boto3
 
 from models import Availability, HutInfo
+import logging
+
+logger = logging.getLogger(__name__)
 
 s3 = boto3.client("s3")
 
@@ -14,7 +17,8 @@ def _upload_file_to_s3(file_path: str, s3_key: str, data: str):
             Bucket=BUCKET_NAME, Key=f"{PATH_NAME}/{s3_key}/{file_path}", Body=data
         )
     except Exception as e:
-        print(f"Error uploading file: {e}")
+        logger.error(f"Error uploading file: {e}")
+        raise e
 
 
 def upload_hut_info_to_s3(hut_info: HutInfo):

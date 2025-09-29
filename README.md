@@ -1,4 +1,4 @@
-# Alpine hut data analysis
+# Alpine huts
 
 ### Prerequisities
 
