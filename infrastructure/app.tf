@@ -56,10 +56,7 @@ resource "aws_iam_policy" "athena_query_policy" {
       {
         Effect = "Allow"
         Action = [
-          "glue:GetTable",
-          "glue:GetTables",
-          "glue:GetDatabase",
-          "glue:GetDatabases"
+          "glue:Get*"
         ]
         Resource = "*"
       }
