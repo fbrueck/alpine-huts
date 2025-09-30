@@ -1,6 +1,7 @@
 from datetime import datetime
-from pydantic import BaseModel, Field
 from typing import List, Optional
+
+from pydantic import BaseModel, Field
 
 
 def to_camel(string: str) -> str:

@@ -1,10 +1,9 @@
+import logging
 import random
 import time
 
 from aws import upload_availability_to_s3, upload_hut_info_to_s3
 from hut_reservation import fetch_hut_availability, fetch_hut_info
-
-import logging
 
 logger = logging.getLogger(__name__)
 

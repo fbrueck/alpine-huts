@@ -1,7 +1,7 @@
-import boto3
-
-from models import Availability, HutInfo
 import logging
+
+import boto3
+from models import Availability, HutInfo
 
 logger = logging.getLogger(__name__)
 

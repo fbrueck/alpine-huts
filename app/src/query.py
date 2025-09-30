@@ -1,6 +1,7 @@
 import duckdb
 import streamlit as st
-from hut_availability import HutAvailability
+
+from model import HutAvailability
 
 setup_aws_credentials = """
 CREATE OR REPLACE SECRET secret (
@@ -30,11 +31,9 @@ FROM glue_catalog.alpine_huts.hut_availability
 """
 
 
-
 @st.cache_data()
 def fetch_data() -> list[HutAvailability]:
     duckdb.sql(setup_aws_credentials)
     duckdb.sql(attach_glue_catalog)
-    result = duckdb.sql(hut_availability_query
-        )
+    result = duckdb.sql(hut_availability_query)
     return [HutAvailability(*row) for row in result.fetchall()]

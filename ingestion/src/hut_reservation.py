@@ -1,9 +1,8 @@
 import datetime
-import requests
-
-from models import Availability, AvailabilityData, HutInfo, HutInfoData
-
 import logging
+
+import requests
+from models import Availability, AvailabilityData, HutInfo, HutInfoData
 
 logger = logging.getLogger(__name__)
 
