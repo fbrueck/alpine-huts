@@ -1,8 +1,9 @@
 import streamlit as st
-import awswrangler as wr
 import folium
 
 from streamlit_folium import folium_static
+
+import duckdb
 
 st.set_page_config(page_title="Alpine huts", layout="wide")
 
@@ -12,19 +13,33 @@ st.html("""
       </style>
   """)
 
+setup_aws_credentials = """
+CREATE OR REPLACE SECRET secret (
+    TYPE s3,
+    PROVIDER credential_chain
+);
+"""
+
+attach_glue_catalog = f"""
+ATTACH IF NOT EXISTS '{st.secrets["ACCOUNT_ID"]}' AS glue_catalog (
+    TYPE iceberg,
+    ENDPOINT_TYPE glue
+);
+"""
 
 @st.cache_data()
 def fetch_data():
-    return wr.athena.read_sql_query(
-        "SELECT * FROM hut_availability",
-        database="alpine_huts",
-        ctas_approach=False,
-        workgroup="app",
-    )
+    duckdb.sql(setup_aws_credentials)
+    duckdb.sql(attach_glue_catalog)
+    result = duckdb.sql(
+        "SELECT * FROM glue_catalog.alpine_huts.hut_availability"
+        )
+    return result.df()
 
 
 data = fetch_data()
 
+data
 
 with st.sidebar:
     status = st.multiselect(
@@ -48,7 +63,7 @@ with st.sidebar:
         ]
     if availability_date:
         filtered_data = filtered_data[
-            filtered_data["availability_date"] == availability_date
+            filtered_data["availability_date"].dt.date == availability_date
         ]
 
     filtered_data_with_location = filtered_data.dropna(
