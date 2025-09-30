@@ -3,7 +3,7 @@
 requirements:
 	@echo "Generate requirements.txt..."
 	uv sync
-	uv pip freeze > requirements.txt
+	uv pip freeze > src/requirements.txt
 
 all:
 	@echo "Run Streamlit app..."
