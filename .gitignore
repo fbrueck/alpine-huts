@@ -8,7 +8,7 @@ __pycache__
 generated
 logs
 
-data/requirements.txt
+transformation/requirements.txt
 ingestion/requirements.txt
 
 

@@ -12,7 +12,7 @@ jobs:
     outputs:
       infrastructure_changed: ${{ steps.filter.outputs.infrastructure }}
       ingestion_changed: ${{ steps.filter.outputs.ingestion }}
-      data_changed: ${{ steps.filter.outputs.data }}
+      transformation_changed: ${{ steps.filter.outputs.transformation }}
     steps:
       - uses: actions/checkout@v3
       - name: Check changed folders
@@ -25,8 +25,8 @@ jobs:
               - 'ingestion/src/models.py'
             ingestion:
               - 'ingestion/**'
-            data:
-              - 'data/**'
+            transformation:
+              - 'transformation/**'
 
   deploy_infrastructure:
     name: Deploy infrastructure
@@ -83,7 +83,7 @@ jobs:
   buid_data_models:
     name: Build data models
     needs: [detect_changes, deploy_infrastructure]
-    if: ${{!failure() && !cancelled() && needs.detect_changes.outputs.data_changed == 'true'}}
+    if: ${{!failure() && !cancelled() && needs.detect_changes.outputs.transformation_changed == 'true'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -100,12 +100,12 @@ jobs:
           version: "0.8.22"
 
       - name: Build data models
-        run: cd data/dbt && uv run dbt deps && uv run dbt run && uv run dbt test
+        run: cd transformation/dbt && uv run dbt deps && uv run dbt run && uv run dbt test
 
   update_dbt_image:
     name: Update dbt image
     needs: [detect_changes, deploy_infrastructure]
-    if: ${{!failure() && !cancelled() && needs.detect_changes.outputs.data_changed == 'true'}}
+    if: ${{!failure() && !cancelled() && needs.detect_changes.outputs.transformation_changed == 'true'}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -125,4 +125,4 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build and update image
-        run: cd data && make
+        run: cd transformation && make

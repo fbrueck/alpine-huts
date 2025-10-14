@@ -11,7 +11,7 @@ Is done with github actions. The scripts for the deployables are in their respec
 
 - Deploy ingestion: Packages and and updates lambda function. `./ingestion/Makefile`
 - Build data models: Builds dbt models
-- Update dbt image: `./data/Makefile`
+- Update dbt image: `./transformation/Makefile`
 - Deploy infrastructure: Generates schema json for raw tables and deploys infrastructure. (`./Makefile`)
 
 
